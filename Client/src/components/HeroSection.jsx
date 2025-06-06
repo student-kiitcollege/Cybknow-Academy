@@ -81,7 +81,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className="bg-purple-200 px-4 sm:px-6 lg:px-12 py-12 min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden">
+      <section className="bg-purple-100 px-4 sm:px-6 lg:px-12 py-12 min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden">
         <div className="max-w-xl lg:w-1/2 text-center lg:text-left animate-fadeSlideIn">
           <h1 className="text-4xl sm:text-5xl font-bold animated-gradient-text">
             Skill<span>Up</span>Now
@@ -120,7 +120,6 @@ export default function HeroSection() {
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-4">
           <div className="bg-white rounded-lg w-full max-w-md p-6 shadow-xl animate-fadeSlideIn relative">
-            {/* Close icon top right */}
             <button
               onClick={handleCloseModal}
               aria-label="Close"
@@ -182,7 +181,6 @@ export default function HeroSection() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 required
               />
-              {/* New select: Qualification */}
               <select
                 name="qualification"
                 value={formData.qualification}
