@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -10,6 +10,34 @@ import {
 } from "react-icons/fa";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      setStatus(data.success ? "✅ Message sent successfully!" : "❌ Failed to send.");
+    } catch (err) {
+      console.error(err);
+      setStatus("❌ Error sending message.");
+    }
+
+    setFormData({ name: "", email: "", message: "" });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8 py-12 max-w-5xl mx-auto">
       <h1 className="text-3xl sm:text-4xl font-bold text-purple-700 text-center mb-10">
@@ -47,7 +75,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               aria-label="WhatsApp"
             >
-              <FaWhatsapp className="hover:text-purple-800 cursor-pointer transition-colors duration-300" />
+              <FaWhatsapp className="hover:text-purple-800 transition-colors duration-300" />
             </a>
             <a
               href="https://www.instagram.com/cybknow/"
@@ -55,7 +83,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               aria-label="Instagram"
             >
-              <FaInstagram className="hover:text-purple-800 cursor-pointer transition-colors duration-300" />
+              <FaInstagram className="hover:text-purple-800 transition-colors duration-300" />
             </a>
             <a
               href="https://www.facebook.com/"
@@ -63,7 +91,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               aria-label="Facebook"
             >
-              <FaFacebook className="hover:text-purple-800 cursor-pointer transition-colors duration-300" />
+              <FaFacebook className="hover:text-purple-800 transition-colors duration-300" />
             </a>
             <a
               href="https://www.linkedin.com/company/cybknow/posts/?feedView=all"
@@ -71,27 +99,36 @@ export default function Contact() {
               rel="noopener noreferrer"
               aria-label="LinkedIn"
             >
-              <FaLinkedin className="hover:text-purple-800 cursor-pointer transition-colors duration-300" />
+              <FaLinkedin className="hover:text-purple-800 transition-colors duration-300" />
             </a>
           </div>
         </div>
 
-        <form className="space-y-5 sm:space-y-6">
+        <form className="space-y-5 sm:space-y-6" onSubmit={handleSubmit}>
           <input
             type="text"
+            name="name"
             placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
             className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-base sm:text-lg"
             required
           />
           <input
             type="email"
+            name="email"
             placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
             className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-base sm:text-lg"
             required
           />
           <textarea
+            name="message"
             placeholder="Your Message"
             rows="5"
+            value={formData.message}
+            onChange={handleChange}
             className="w-full px-4 py-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-base sm:text-lg resize-none"
             required
           />
@@ -101,6 +138,10 @@ export default function Contact() {
           >
             Send Message
           </button>
+
+          {status && (
+            <p className="text-center text-sm text-gray-600 mt-2">{status}</p>
+          )}
         </form>
       </div>
     </div>
