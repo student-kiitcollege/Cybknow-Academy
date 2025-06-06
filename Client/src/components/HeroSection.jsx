@@ -7,6 +7,8 @@ export default function HeroSection() {
     email: "",
     phone: "",
     password: "",
+    qualification: "",
+    program: "",
   });
   const [loading, setLoading] = useState(false);
 
@@ -16,10 +18,16 @@ export default function HeroSection() {
 
   const handleCloseModal = () => {
     setShowModal(false);
-    setFormData({ name: "", email: "", phone: "", password: "" });
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      password: "",
+      qualification: "",
+      program: "",
+    });
   };
 
-  // Update form input state
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -31,7 +39,15 @@ export default function HeroSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.name || !formData.email || !formData.phone || !formData.password) {
+    // Validate all fields including new selects
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.password ||
+      !formData.qualification ||
+      !formData.program
+    ) {
       alert("Please fill all fields");
       return;
     }
@@ -103,8 +119,32 @@ export default function HeroSection() {
 
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-4">
-          <div className="bg-white rounded-lg w-full max-w-md p-6 shadow-xl animate-fadeSlideIn">
-            <h2 className="text-2xl font-bold text-purple-700 mb-4 cursor-pointer">Register Now</h2>
+          <div className="bg-white rounded-lg w-full max-w-md p-6 shadow-xl animate-fadeSlideIn relative">
+            {/* Close icon top right */}
+            <button
+              onClick={handleCloseModal}
+              aria-label="Close"
+              className="absolute top-4 right-4 text-gray-500 hover:text-purple-600 transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            <h2 className="text-2xl font-bold text-purple-700 mb-4">
+              Register Now
+            </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 name="name"
@@ -142,6 +182,42 @@ export default function HeroSection() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 required
               />
+              {/* New select: Qualification */}
+              <select
+                name="qualification"
+                value={formData.qualification}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                required
+              >
+                <option value="" disabled>
+                  Select Qualification
+                </option>
+                <option value="High School">High School</option>
+                <option value="Diploma">Diploma</option>
+                <option value="Undergraduate">Undergraduate</option>
+                <option value="Postgraduate">Postgraduate</option>
+                <option value="Other">Other</option>
+              </select>
+
+              {/* New select: Program */}
+              <select
+                name="program"
+                value={formData.program}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                required
+              >
+                <option value="" disabled>
+                  Select Program
+                </option>
+                <option value="Web Development">Web Development</option>
+                <option value="Data Science">Data Science</option>
+                <option value="Mobile App Development">Mobile App Development</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+                <option value="Other">Other</option>
+              </select>
+
               <button
                 type="submit"
                 disabled={loading}
@@ -150,12 +226,6 @@ export default function HeroSection() {
                 {loading ? "Submitting..." : "Submit"}
               </button>
             </form>
-            <button
-              onClick={handleCloseModal}
-              className="cursor-pointer mt-4 text-sm text-gray-600 hover:text-purple-600"
-            >
-              Close
-            </button>
           </div>
         </div>
       )}

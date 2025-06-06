@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { FaTimes } from "react-icons/fa";
 
 export default function Navbar() {
   const [showRegisterModal, setShowRegisterModal] = useState(false);
@@ -8,12 +9,13 @@ export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Register form state
   const [registerData, setRegisterData] = useState({
     name: "",
     email: "",
     phone: "",
     password: "",
+    qualification: "",
+    program: "",
   });
   const [loading, setLoading] = useState(false);
   const [registerSuccess, setRegisterSuccess] = useState("");
@@ -51,9 +53,14 @@ export default function Navbar() {
 
       if (data.success) {
         setRegisterSuccess("Registration successful! Confirmation email sent.");
-        setRegisterData({ name: "", email: "", phone: "", password: "" });
-        // Optionally close modal after success
-        // setTimeout(() => setShowRegisterModal(false), 3000);
+        setRegisterData({
+          name: "",
+          email: "",
+          phone: "",
+          password: "",
+          qualification: "",
+          program: "",
+        });
       } else {
         setRegisterError("Registration failed. Please try again.");
       }
@@ -73,12 +80,8 @@ export default function Navbar() {
             alt="Cybknow Logo"
             className="h-auto w-16 sm:w-20"
           />
-          <span className="text-lg sm:text-xl font-semibold text-purple-700">
-            Cybknow
-          </span>
-          <span className="text-lg sm:text-xl font-semibold text-black">
-            Academy
-          </span>
+          <span className="text-lg sm:text-xl font-semibold text-purple-700">Cybknow</span>
+          <span className="text-lg sm:text-xl font-semibold text-black">Academy</span>
         </div>
 
         <button
@@ -89,20 +92,13 @@ export default function Navbar() {
         </button>
 
         <ul
-          className={`md:flex space-y-4 md:space-y-0 md:space-x-6 text-[#1c1c3b] font-medium absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 transition-all duration-300 ${
-            isMobileMenuOpen ? "block" : "hidden"
-          }`}
+          className={`md:flex space-y-4 md:space-y-0 md:space-x-6 text-[#1c1c3b] font-medium absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 transition-all duration-300 ${isMobileMenuOpen ? "block" : "hidden"}`}
         >
           <li className="hover:text-purple-600 cursor-pointer">
-            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>
-              Home
-            </Link>
+            <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
           </li>
 
-          <li
-            className="relative cursor-pointer select-none"
-            ref={dropdownRef}
-          >
+          <li className="relative cursor-pointer select-none" ref={dropdownRef}>
             <button
               type="button"
               onClick={() => setShowInternshipDropdown((prev) => !prev)}
@@ -116,38 +112,29 @@ export default function Navbar() {
             {showInternshipDropdown && (
               <ul className="absolute bg-white shadow-lg rounded-md py-2 w-44 z-50 mt-2">
                 <li>
-                  <Link
-                    to="/course/ethical-hacking"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                  <Link to="/course/ethical-hacking" className="block px-4 py-2 hover:bg-gray-100"
                     onClick={() => {
                       setShowInternshipDropdown(false);
                       setIsMobileMenuOpen(false);
-                    }}
-                  >
+                    }}>
                     Ethical Hacking
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/course/network-security"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                  <Link to="/course/network-security" className="block px-4 py-2 hover:bg-gray-100"
                     onClick={() => {
                       setShowInternshipDropdown(false);
                       setIsMobileMenuOpen(false);
-                    }}
-                  >
+                    }}>
                     Network Security
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/course/cyber-security"
-                    className="block px-4 py-2 hover:bg-gray-100"
+                  <Link to="/course/cyber-security" className="block px-4 py-2 hover:bg-gray-100"
                     onClick={() => {
                       setShowInternshipDropdown(false);
                       setIsMobileMenuOpen(false);
-                    }}
-                  >
+                    }}>
                     Cyber Security
                   </Link>
                 </li>
@@ -156,14 +143,10 @@ export default function Navbar() {
           </li>
 
           <li className="hover:text-purple-600 cursor-pointer">
-            <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>
-              About
-            </Link>
+            <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
           </li>
           <li className="hover:text-purple-600 cursor-pointer">
-            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>
-              Contact
-            </Link>
+            <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
           </li>
 
           <li className="md:hidden flex flex-col gap-2">
@@ -204,93 +187,65 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Register Modal */}
       {showRegisterModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg w-[90%] max-w-md p-6 shadow-xl animate-fadeSlideIn">
+          <div className="relative bg-white rounded-lg w-[90%] max-w-md p-6 shadow-xl animate-fadeSlideIn">
+            <button
+              onClick={() => setShowRegisterModal(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-purple-600 text-lg cursor-pointer"
+              aria-label="Close"
+            >
+              <FaTimes />
+            </button>
             <h2 className="text-2xl font-bold text-purple-700 mb-4">Register</h2>
 
-            {registerSuccess && (
-              <p className="mb-4 text-green-600">{registerSuccess}</p>
-            )}
+            {registerSuccess && <p className="mb-4 text-green-600">{registerSuccess}</p>}
             {registerError && <p className="mb-4 text-red-600">{registerError}</p>}
 
             <form className="space-y-4" onSubmit={handleRegisterSubmit}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Full Name"
-                value={registerData.name}
-                onChange={handleRegisterChange}
-                required
-                className="input"
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                value={registerData.email}
-                onChange={handleRegisterChange}
-                required
-                className="input"
-              />
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                value={registerData.phone}
-                onChange={handleRegisterChange}
-                required
-                className="input"
-              />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={registerData.password}
-                onChange={handleRegisterChange}
-                required
-                className="input"
-              />
-              <button
-                type="submit"
-                className="btn cursor-pointer"
-                disabled={loading}
-              >
+              <input type="text" name="name" placeholder="Full Name" value={registerData.name} onChange={handleRegisterChange} required className="input" />
+              <input type="email" name="email" placeholder="Email" value={registerData.email} onChange={handleRegisterChange} required className="input" />
+              <input type="tel" name="phone" placeholder="Phone Number" value={registerData.phone} onChange={handleRegisterChange} required className="input" />
+              <input type="password" name="password" placeholder="Password" value={registerData.password} onChange={handleRegisterChange} required className="input" />
+
+              <select name="qualification" value={registerData.qualification} onChange={handleRegisterChange} required className="input">
+                <option value="">Select Qualification</option>
+                <option value="Post Higher Secondary">Post Higher Secondary</option>
+                <option value="Under Graduate">Under Graduate</option>
+                <option value="Post Graduate">Post Graduate</option>
+              </select>
+
+              <select name="program" value={registerData.program} onChange={handleRegisterChange} required className="input">
+                <option value="">Select Program</option>
+                <option value="Ethical Hacking">Ethical Hacking</option>
+                <option value="Network Security">Network Security</option>
+                <option value="Cyber Security">Cyber Security</option>
+              </select>
+
+              <button type="submit" className="btn cursor-pointer" disabled={loading}>
                 {loading ? "Registering..." : "Submit"}
               </button>
             </form>
-
-            <button
-              onClick={() => setShowRegisterModal(false)}
-              className="mt-4 text-sm text-gray-600 hover:text-purple-600 cursor-pointer"
-            >
-              Close
-            </button>
           </div>
         </div>
       )}
 
-      {/* Login Modal (unchanged, no functionality added here) */}
       {showLoginModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg w-[90%] max-w-md p-6 shadow-xl animate-fadeSlideIn">
-            <h2 className="text-2xl font-bold text-purple-700 mb-4 cursor-pointer">
-              Login
-            </h2>
+          <div className="relative bg-white rounded-lg w-[90%] max-w-md p-6 shadow-xl animate-fadeSlideIn">
+            <button
+              onClick={() => setShowLoginModal(false)}
+              className="absolute top-3 right-3 text-gray-500 hover:text-purple-600 text-lg cursor-pointer"
+              aria-label="Close"
+            >
+              <FaTimes />
+            </button>
+            <h2 className="text-2xl font-bold text-purple-700 mb-4">Login</h2>
             <form className="space-y-4">
               <input type="email" placeholder="Email" className="input" />
               <input type="password" placeholder="Password" className="input" />
-              <button type="submit" className="btn cursor-pointer">
-                Login
-              </button>
+              <button type="submit" className="btn cursor-pointer">Login</button>
             </form>
-            <button
-              onClick={() => setShowLoginModal(false)}
-              className="mt-4 text-sm text-gray-600 hover:text-purple-600 cursor-pointer"
-            >
-              Close
-            </button>
           </div>
         </div>
       )}
