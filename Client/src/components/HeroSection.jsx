@@ -39,7 +39,6 @@ export default function HeroSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate all fields including new selects
     if (
       !formData.name ||
       !formData.email ||
@@ -123,7 +122,7 @@ export default function HeroSection() {
             <button
               onClick={handleCloseModal}
               aria-label="Close"
-              className="absolute top-4 right-4 text-gray-500 hover:text-purple-600 transition-colors"
+              className="absolute top-4 right-4 text-gray-500 hover:text-purple-600 transition-colors cursor-pointer"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +197,6 @@ export default function HeroSection() {
                 <option value="Other">Other</option>
               </select>
 
-              {/* New select: Program */}
               <select
                 name="program"
                 value={formData.program}
