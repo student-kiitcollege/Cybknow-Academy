@@ -80,7 +80,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className="bg-purple-100 px-4 sm:px-6 lg:px-12 py-12 min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden">
+      <section className="bg-white px-4 sm:px-6 lg:px-12 py-12 min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden">
         <div className="max-w-xl lg:w-1/2 text-center lg:text-left animate-fadeSlideIn">
           <h1 className="text-4xl sm:text-5xl font-bold animated-gradient-text">
             Skill<span>Up</span>Now

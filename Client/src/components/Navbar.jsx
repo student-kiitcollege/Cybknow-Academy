@@ -73,7 +73,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-white shadow-md px-4 sm:px-6 py-4 flex justify-between items-center">
+      <nav className="sticky top-0 z-50 bg-black shadow-md px-4 sm:px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-2">
           <img
             src="https://cybknow.com/wp-content/uploads/2025/02/logo.png"
@@ -81,7 +81,7 @@ export default function Navbar() {
             className="h-auto w-16 sm:w-20"
           />
           <span className="text-lg sm:text-xl font-semibold text-purple-700">Cybknow</span>
-          <span className="text-lg sm:text-xl font-semibold text-black">Academy</span>
+          <span className="text-lg sm:text-xl font-semibold text-white">Academy</span>
         </div>
 
         <button
@@ -94,7 +94,7 @@ export default function Navbar() {
         <ul
           className={`md:flex space-y-4 md:space-y-0 md:space-x-6 text-[#1c1c3b] font-medium absolute md:static top-full left-0 w-full md:w-auto bg-white md:bg-transparent p-4 md:p-0 transition-all duration-300 ${isMobileMenuOpen ? "block" : "hidden"}`}
         >
-          <li className="hover:text-purple-600 cursor-pointer">
+          <li className="hover:text-purple-600 text-white cursor-pointer">
             <Link to="/" onClick={() => setIsMobileMenuOpen(false)}>Home</Link>
           </li>
 
@@ -104,7 +104,7 @@ export default function Navbar() {
               onClick={() => setShowInternshipDropdown((prev) => !prev)}
               aria-haspopup="true"
               aria-expanded={showInternshipDropdown}
-              className="hover:text-purple-600 flex items-center gap-1 cursor-pointer"
+              className="hover:text-purple-600 flex items-center gap-1 cursor-pointer text-white"
             >
               Internships <span>▾</span>
             </button>
@@ -142,10 +142,10 @@ export default function Navbar() {
             )}
           </li>
 
-          <li className="hover:text-purple-600 cursor-pointer">
+          <li className="hover:text-purple-600 cursor-pointer text-white">
             <Link to="/about" onClick={() => setIsMobileMenuOpen(false)}>About</Link>
           </li>
-          <li className="hover:text-purple-600 cursor-pointer">
+          <li className="hover:text-purple-600 cursor-pointer text-white">
             <Link to="/contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
           </li>
 

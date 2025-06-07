@@ -97,7 +97,7 @@ const ProgramFeatures = () => {
       <Slider {...settings}>
         {features.map((item, index) => (
           <div key={index}>
-            <div className="bg-purple-300 rounded-3xl shadow-lg flex flex-col items-center text-center p-5 min-h-[360px] max-w-sm mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
+            <div className="bg-purple-100 rounded-3xl shadow-lg flex flex-col items-center text-center p-5 min-h-[360px] max-w-sm mx-auto transition-transform duration-300 hover:scale-105 hover:shadow-2xl">
               <div className="w-full flex justify-center mb-5">
                 <img
                   src={item.img}
