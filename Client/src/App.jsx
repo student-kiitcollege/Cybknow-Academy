@@ -13,6 +13,7 @@ import Popup from './components/Popup';
 import About from './components/About';
 import Contact from './components/Contact';
 import AllCourses from './components/AllCourses';
+import CourseDetail from './components/CourseDetail'; // ✅ new import
 import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
@@ -29,13 +30,14 @@ const App = () => {
               <HeroSection />
               <WhyChooseUs />
               <ProgramFeatures />
-              <PlacementAssistance /> 
+              <PlacementAssistance />
               <Testimonials />
               <Collaborations />
             </>
           }
         />
         <Route path="/all-courses" element={<AllCourses />} />
+        <Route path="/course/:id" element={<CourseDetail />} /> {/* ✅ dynamic route */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
