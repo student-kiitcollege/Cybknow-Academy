@@ -61,17 +61,15 @@ const features = [
   },
 ];
 
-const ProgramFeatures = () => {
-  const visibleFeatures = features.slice(0, 3); // Show only first 3
-
+export default function AllCourses() {
   return (
-    <section className="bg-[#0A0028] py-16 px-4 text-white overflow-hidden">
+    <section className="bg-[#0A0028] py-16 px-4 text-white min-h-screen">
       <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-        EXPLORE OUR <span className="text-pink-500">POPULAR COURSES</span>
+        ALL <span className="text-pink-500">COURSES</span>
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
-        {visibleFeatures.map((item, index) => (
+        {features.map((item, index) => (
           <div
             key={index}
             className="bg-[#12003a] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.03]"
@@ -106,17 +104,6 @@ const ProgramFeatures = () => {
           </div>
         ))}
       </div>
-
-      <div className="mt-10 text-center">
-        <Link
-          to="/all-courses"
-          className="bg-transparent border border-white px-6 py-2 rounded-full text-white hover:bg-white hover:text-[#0A0028] transition duration-300"
-        >
-          View All Courses →
-        </Link>
-      </div>
     </section>
   );
-};
-
-export default ProgramFeatures;
+}

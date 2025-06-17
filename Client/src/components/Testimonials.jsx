@@ -117,7 +117,7 @@ const Testimonials = () => {
   }, [activeIndex]);
 
   return (
-    <section className="bg-white py-16 px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#0A0028] py-16 px-4 sm:px-6 lg:px-8 text-white">
       <div className="flex flex-col items-center mb-12 px-2">
         <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 relative inline-block mb-2">
           <span className="relative z-10">Testimonials</span>

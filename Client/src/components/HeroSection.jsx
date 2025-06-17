@@ -12,10 +12,7 @@ export default function HeroSection() {
   });
   const [loading, setLoading] = useState(false);
 
-  const handleRegisterClick = () => {
-    setShowModal(true);
-  };
-
+  const handleRegisterClick = () => setShowModal(true);
   const handleCloseModal = () => {
     setShowModal(false);
     setFormData({
@@ -38,40 +35,21 @@ export default function HeroSection() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.password ||
-      !formData.qualification ||
-      !formData.program
-    ) {
-      alert("Please fill all fields");
-      return;
-    }
+    const isEmpty = Object.values(formData).some((val) => val === "");
+    if (isEmpty) return alert("Please fill all fields");
 
     setLoading(true);
-
     try {
       const res = await fetch("http://localhost:5000/api/register", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       const data = await res.json();
-
-      if (data.success) {
-        alert("Registration successful! Check your email.");
-        handleCloseModal();
-      } else {
-        alert("Registration failed. Please try again.");
-      }
+      data.success
+        ? (alert("Registration successful! Check your email."), handleCloseModal())
+        : alert("Registration failed. Please try again.");
     } catch (error) {
-      console.error("Registration error:", error);
       alert("Something went wrong. Please try again.");
     } finally {
       setLoading(false);
@@ -80,39 +58,51 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className="bg-white px-4 sm:px-6 lg:px-12 py-12 min-h-screen flex flex-col lg:flex-row items-center justify-between overflow-hidden">
-        <div className="max-w-xl lg:w-1/2 text-center lg:text-left animate-fadeSlideIn">
-          <h1 className="text-4xl sm:text-5xl font-bold animated-gradient-text">
-            Skill<span>Up</span>Now
+      <section className="bg-[#0A0028] text-white px-4 sm:px-6 lg:px-12 py-16 min-h-screen flex flex-col items-center justify-center">
+        <div className="max-w-3xl w-full text-center space-y-4 animate-fadeSlideIn">
+          <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
+            Unlock Your Potential in{" "}
+            <span className="text-blue-500">Cybersecurity</span> with Cybknow Academy
           </h1>
-          <p className="mt-4 text-xl sm:text-2xl font-semibold animated-gradient-text">
-            India's No.1 Virtual Internship Platform
-          </p>
-          <p className="mt-2 text-base sm:text-lg text-gray-700 max-w-md mx-auto lg:mx-0">
-            Learn today for a better tomorrow
+          <p className="text-lg sm:text-xl text-purple-300 font-medium">
+            Join Cybknow Academy for expert-led courses, hands-on training, and
+            career-accelerating placement support in the ever-evolving world of cyber defense.
           </p>
           <button
             onClick={handleRegisterClick}
-            className="cursor-pointer mt-6 bg-purple-600 text-white px-5 py-3 rounded-md font-medium hover:bg-purple-700 transition-transform transform hover:scale-105 shadow-lg hover:shadow-purple-400/50"
+            className="mt-6 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 px-8 py-3 rounded-lg text-white font-semibold shadow-lg hover:shadow-purple-400/50 transition-transform transform hover:scale-105"
           >
-            REGISTER NOW
+            Explore Our Courses →
           </button>
         </div>
 
-        <div className="mt-10 lg:mt-0 lg:w-1/2 flex justify-center items-center h-[60vh] sm:h-[70vh] md:h-[80vh] perspective max-w-full">
-          <div
-            className="w-full max-w-lg h-full animate-zoomFloat"
-            style={{
-              transformStyle: "preserve-3d",
-              animation: "zoomFloat 8s ease-in-out infinite",
-            }}
-          >
-            <img
-              src="https://inmakeslh.in/assets/ast/right-top.png"
-              alt="Hero Illustration"
-              className="w-full h-full object-contain"
-            />
-          </div>
+        <div className="w-full max-w-6xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 sm:px-6">
+          {[
+            {
+              icon: "📘",
+              title: "100+ Courses",
+              desc: "Cutting-edge curriculum",
+            },
+            {
+              icon: "👨‍🏫",
+              title: "Expert Instructors",
+              desc: "Industry professionals",
+            },
+            {
+              icon: "💼",
+              title: "90% Placement Rate",
+              desc: "Career success focused",
+            },
+          ].map((card, index) => (
+            <div
+              key={index}
+              className="bg-[#12003a] rounded-2xl p-6 shadow-md border border-purple-900/30 text-left hover:shadow-purple-600/30 transition-all"
+            >
+              <div className="text-4xl mb-4">{card.icon}</div>
+              <h3 className="text-xl font-bold text-white">{card.title}</h3>
+              <p className="text-sm text-gray-300 mt-1">{card.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -122,64 +112,27 @@ export default function HeroSection() {
             <button
               onClick={handleCloseModal}
               aria-label="Close"
-              className="absolute top-4 right-4 text-gray-500 hover:text-purple-600 transition-colors cursor-pointer"
+              className="absolute top-4 right-4 text-gray-500 hover:text-purple-600 transition"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
+              ✕
             </button>
 
             <h2 className="text-2xl font-bold text-purple-700 mb-4">
               Register Now
             </h2>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                type="text"
-                placeholder="Full Name"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                required
-              />
-              <input
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                type="email"
-                placeholder="Email"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                required
-              />
-              <input
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                type="tel"
-                placeholder="Phone Number"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                required
-              />
-              <input
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                type="password"
-                placeholder="Password"
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
-                required
-              />
+              {["name", "email", "phone", "password"].map((field) => (
+                <input
+                  key={field}
+                  name={field}
+                  value={formData[field]}
+                  onChange={handleChange}
+                  type={field === "password" ? "password" : "text"}
+                  placeholder={field[0].toUpperCase() + field.slice(1)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  required
+                />
+              ))}
               <select
                 name="qualification"
                 value={formData.qualification}
@@ -187,14 +140,11 @@ export default function HeroSection() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 required
               >
-                <option value="" disabled>
-                  Select Qualification
-                </option>
+                <option value="" disabled>Select Qualification</option>
                 <option value="High School">High School</option>
                 <option value="Diploma">Diploma</option>
                 <option value="Undergraduate">Undergraduate</option>
                 <option value="Postgraduate">Postgraduate</option>
-                <option value="Other">Other</option>
               </select>
 
               <select
@@ -204,20 +154,17 @@ export default function HeroSection() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
                 required
               >
-                <option value="" disabled>
-                  Select Program
-                </option>
+                <option value="" disabled>Select Program</option>
                 <option value="Web Development">Web Development</option>
                 <option value="Data Science">Data Science</option>
                 <option value="Mobile App Development">Mobile App Development</option>
                 <option value="Digital Marketing">Digital Marketing</option>
-                <option value="Other">Other</option>
               </select>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="cursor-pointer w-full bg-purple-600 text-white py-2 rounded-md hover:bg-purple-700 disabled:opacity-50"
+                className="w-full bg-purple-600 hover:bg-purple-700 py-2 rounded-md text-white font-semibold disabled:opacity-50"
               >
                 {loading ? "Submitting..." : "Submit"}
               </button>
@@ -227,42 +174,6 @@ export default function HeroSection() {
       )}
 
       <style>{`
-        /* Animatable CSS variables for colors */
-        @property --color-1 {
-          syntax: "<color>";
-          inherits: false;
-          initial-value: hsl(98 100% 62%);
-        }
-
-        @property --color-2 {
-          syntax: "<color>";
-          inherits: false;
-          initial-value: hsl(204 100% 59%);
-        }
-
-        /* Animation for the color variables */
-        @keyframes gradient-change {
-          to {
-            --color-1: hsl(210 100% 59%);
-            --color-2: hsl(310 100% 59%);
-          }
-        }
-
-        /* Animated gradient text */
-        .animated-gradient-text {
-          background: linear-gradient(
-            to right in oklch,
-            var(--color-1),
-            var(--color-2)
-          );
-          animation: gradient-change 3s linear infinite alternate;
-
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          color: transparent;
-        }
-
         @keyframes fadeSlideIn {
           0% {
             opacity: 0;
@@ -273,22 +184,6 @@ export default function HeroSection() {
             transform: translateY(0);
           }
         }
-
-        @keyframes zoomFloat {
-          0%, 100% {
-            transform: scale(1) rotateY(0deg) rotateX(0deg) translateY(0px);
-          }
-          25% {
-            transform: scale(1.02) rotateY(3deg) rotateX(1deg) translateY(-10px);
-          }
-          50% {
-            transform: scale(1.04) rotateY(0deg) rotateX(0deg) translateY(0px);
-          }
-          75% {
-            transform: scale(1.02) rotateY(-3deg) rotateX(-1deg) translateY(10px);
-          }
-        }
-
         .animate-fadeSlideIn {
           animation: fadeSlideIn 0.8s ease-out forwards;
         }

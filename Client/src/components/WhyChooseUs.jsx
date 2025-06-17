@@ -1,48 +1,46 @@
 import React from "react";
+import { FaCertificate, FaBolt, FaBriefcase, FaArrowUp } from "react-icons/fa";
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-white py-20 px-4 overflow-hidden">
+    <section className="bg-[#0A0028] py-20 px-4 overflow-hidden text-white">
       <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl font-bold text-gray-800">
-          WHY <span className="text-purple-600">CHOOSE US</span>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-12">
+          WHY CHOOSE <span className="text-blue-500">CYBKNOW ACADEMY</span>?
         </h2>
-        <div className="h-1 w-24 bg-purple-500 mx-auto mt-2 mb-12 rounded-full"></div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-2 md:px-4">
           {[
             {
-              img: "https://inmakeslh.in/assets/ast/One-to-one.png",
-              title: "Professional Mentoring",
-              desc: "One-to-one mentorship from Experts",
+              icon: <FaCertificate size={28} />,
+              title: "Expert-Led Training",
+              desc: "Learn from industry veterans with real-world experience in cybersecurity.",
             },
             {
-              img: "https://inmakeslh.in/assets/ast/Challenge.png",
-              title: "Gain work-experience",
-              desc: "Challenge and Task-based learning",
+              icon: <FaBolt size={28} />,
+              title: "Hands-On Labs",
+              desc: "Gain practical skills through immersive labs and real-world simulations.",
             },
             {
-              img: "https://inmakeslh.in/assets/ast/Placement.png",
-              title: "Great Career",
-              desc: "100% Life-long Placement Assistance",
+              icon: <FaBriefcase size={28} />,
+              title: "Career Placement",
+              desc: "Our dedicated team helps you find internships and job opportunities.",
             },
             {
-              img: "https://inmakeslh.in/assets/ast/Time.png",
-              title: "Quality Classes",
-              desc: "Live Online sessions & flexible timing",
+              icon: <FaArrowUp size={28} />,
+              title: "Updated Curriculum",
+              desc: "Stay ahead with courses covering the latest threats and technologies.",
             },
           ].map((item, idx) => (
             <div
               key={idx}
-              className="bg-white p-6 rounded-2xl shadow-md text-center transition-transform hover:scale-105 duration-300"
+              className="bg-[#12003a] p-6 rounded-2xl shadow-md border border-purple-900/30 text-center transition-transform hover:scale-105 duration-300"
             >
-              <img
-                src={item.img}
-                alt={item.title}
-                className="h-20 w-20 mx-auto mb-4 object-contain"
-              />
-              <h3 className="text-lg font-semibold text-gray-800">{item.title}</h3>
-              <p className="mt-2 text-gray-600 text-sm">{item.desc}</p>
+              <div className="bg-[#1b0b4f] w-14 h-14 mx-auto rounded-full flex items-center justify-center text-blue-400 mb-4">
+                {item.icon}
+              </div>
+              <h3 className="text-lg font-bold text-white">{item.title}</h3>
+              <p className="mt-2 text-sm text-gray-300">{item.desc}</p>
             </div>
           ))}
         </div>

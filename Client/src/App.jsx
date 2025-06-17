@@ -5,23 +5,22 @@ import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import WhyChooseUs from './components/WhyChooseUs';
 import ProgramFeatures from './components/ProgramFeatures';
-import TrendingPrograms from './components/TrendingPrograms';
+import PlacementAssistance from './components/PlacementAssistance';
 import Testimonials from './components/Testimonials';
 import Collaborations from './components/Collaborations';
 import Footer from './components/Footer';
 import Popup from './components/Popup';
-import CourseDetails from './components/CourseDetails';
 import About from './components/About';
 import Contact from './components/Contact';
-
-import ScrollToTop from './components/ScrollToTop'; // Import the new component
+import AllCourses from './components/AllCourses';
+import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
   return (
     <Router>
       <Popup />
       <Navbar />
-      <ScrollToTop /> {/* Add ScrollToTop here */}
+      <ScrollToTop />
       <Routes>
         <Route
           path="/"
@@ -30,17 +29,17 @@ const App = () => {
               <HeroSection />
               <WhyChooseUs />
               <ProgramFeatures />
-              <TrendingPrograms />
+              <PlacementAssistance /> 
               <Testimonials />
               <Collaborations />
             </>
           }
         />
-        <Route path="/course/:courseId" element={<CourseDetails />} />
+        <Route path="/all-courses" element={<AllCourses />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      <Footer /> 
+      <Footer />
     </Router>
   );
 };
