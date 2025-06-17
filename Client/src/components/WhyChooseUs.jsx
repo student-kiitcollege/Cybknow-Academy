@@ -9,7 +9,7 @@ export default function WhyChooseUs() {
           WHY CHOOSE <span className="text-blue-500">CYBKNOW ACADEMY</span>?
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-2 md:px-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 px-2 md:px-4 cursor-pointer">
           {[
             {
               icon: <FaCertificate size={28} />,

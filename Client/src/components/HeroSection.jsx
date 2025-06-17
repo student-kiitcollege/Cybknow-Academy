@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 export default function HeroSection() {
+  const navigate = useNavigate(); // Initialize navigate hook
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -69,14 +71,14 @@ export default function HeroSection() {
             career-accelerating placement support in the ever-evolving world of cyber defense.
           </p>
           <button
-            onClick={handleRegisterClick}
-            className="mt-6 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 px-8 py-3 rounded-lg text-white font-semibold shadow-lg hover:shadow-purple-400/50 transition-transform transform hover:scale-105"
+            onClick={() => navigate("/all-courses")} 
+            className="cursor-pointer mt-6 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 px-8 py-3 rounded-lg text-white font-semibold shadow-lg hover:shadow-purple-400/50 transition-transform transform hover:scale-105"
           >
             Explore Our Courses →
           </button>
         </div>
 
-        <div className="w-full max-w-6xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 sm:px-6">
+        <div className="cursor-pointer w-full max-w-6xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 sm:px-6">
           {[
             {
               icon: "📘",

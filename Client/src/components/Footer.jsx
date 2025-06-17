@@ -11,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white px-4 sm:px-6 lg:px-12 py-10">
+    <footer className="bg-[#140836] text-white px-4 sm:px-6 lg:px-12 py-10">
       <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10">
         <div>
           <h2 className="text-2xl font-bold mb-2">

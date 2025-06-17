@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
   const location = useLocation();
+  const [scrolled, setScrolled] = useState(false);
 
   const navItems = [
     { label: "Home", path: "/" },
@@ -11,8 +12,21 @@ export default function Navbar() {
     { label: "Support", path: "/support" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10); // adjust scroll value as needed
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="bg-[#0A0028] px-6 py-4 flex justify-between items-center shadow-md sticky top-0 z-50">
+    <nav
+      className={`px-6 py-4 flex justify-between items-center shadow-md sticky top-0 z-50 transition duration-300 ${
+        scrolled ? "bg-[#0A0028]/80 backdrop-blur-md" : "bg-[#0A0028]"
+      }`}
+    >
       <div className="flex items-center space-x-2">
         <img
           src="https://cybknow.com/wp-content/uploads/2025/02/logo.png"

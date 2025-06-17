@@ -1,5 +1,6 @@
 import React from "react";
 import { FaHandshake, FaUniversity, FaGlobe } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const partners = [
   {
@@ -20,6 +21,8 @@ const partners = [
 ];
 
 const CollaborationSection = () => {
+  const navigate = useNavigate(); 
+
   return (
     <section className="bg-[#0A0028] text-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto text-center mb-12">
@@ -29,7 +32,7 @@ const CollaborationSection = () => {
         </p>
       </div>
 
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto text-center">
+      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto text-center cursor-pointer">
         {partners.map((partner, index) => (
           <div
             key={index}
@@ -49,12 +52,12 @@ const CollaborationSection = () => {
         <p className="text-white text-base sm:text-lg max-w-2xl mx-auto mb-6">
           Join 10,000+ students who have upskilled through our industry-ready internship programs and expert mentorship.
         </p>
-        <a
-          href="/register"
-          className="inline-block bg-white text-pink-600 font-semibold px-6 py-3 rounded-full hover:bg-gray-300 transition duration-300"
+        <button
+          onClick={() => navigate("/contact")}
+          className="bg-white text-pink-600 font-semibold px-6 py-3 rounded-full hover:bg-gray-300 transition duration-300 cursor-pointer"
         >
-          Get Started Today 
-        </a>
+          Get Started Today
+        </button>
       </div>
     </section>
   );
