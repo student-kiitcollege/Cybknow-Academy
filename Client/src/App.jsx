@@ -13,7 +13,9 @@ import Popup from './components/Popup';
 import About from './components/About';
 import Contact from './components/Contact';
 import AllCourses from './components/AllCourses';
-import CourseDetail from './components/CourseDetail'; 
+import CourseDetail from './components/CourseDetail';
+import Placements from './components/Placements';
+import Support from './components/Support'; 
 import ScrollToTop from './components/ScrollToTop';
 
 const App = () => {
@@ -37,7 +39,9 @@ const App = () => {
           }
         />
         <Route path="/all-courses" element={<AllCourses />} />
-        <Route path="/course/:id" element={<CourseDetail />} /> 
+        <Route path="/course/:id" element={<CourseDetail />} />
+        <Route path="/placements" element={<Placements />} />
+        <Route path="/support" element={<Support />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
