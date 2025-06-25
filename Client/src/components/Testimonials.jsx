@@ -3,84 +3,84 @@ import { FaStar } from "react-icons/fa";
 
 const testimonials = [
   {
-    name: "Deena Jose",
-    username: "@deenajose",
+    name: "Ananya Sahu",
+    username: "@anaya355",
     time: "3 weeks ago",
     stars: 5,
     review:
-      "Great place to learn new skills. Mentors are too good, especially Anjum. She has cleared all my doubts regardless of time. The way online internship is organized is really good.",
-    avatar: "https://www.gstatic.com/images/icons/material/system/2x/account_circle_white_48dp.png",
-    platformLogo: "https://yt3.googleusercontent.com/mhme5V2s8MFLJ7lTY1i5K4yZy6mIg8dbvPN-TYWGmDcbA5beh9qbxRWAeZ9lJNPddOaJxhf0=s900-c-k-c0x00ffffff-no-rj",
+      "Great place to learn new skills. Mentors are too good, especially Sangram. He has cleared all my doubts regardless of time. The way online internship is organized is really good.",
+    avatar: "https://img.freepik.com/premium-vector/young-man-avatar-character-due-avatar-man-vector-icon-cartoon-illustration_1186924-4438.jpg?semt=ais_hybrid&w=740",
+    platformLogo: "/public/icon.jpg",
   },
   {
-    name: "Ann Jacob",
-    username: "@annjacob",
+    name: "Subham Parta",
+    username: "@Subhampatraaa",
     time: "1 week ago",
     stars: 5,
     review:
       "A great company to gain experience, learn, and develop valuable skills. The staff and placement officers provide excellent guidance, making the learning experience even more enriching.",
-    avatar: "https://ui-avatars.com/api/?name=Ann+Jacob&background=8b0000&color=fff",
-    platformLogo: "https://yt3.googleusercontent.com/mhme5V2s8MFLJ7lTY1i5K4yZy6mIg8dbvPN-TYWGmDcbA5beh9qbxRWAeZ9lJNPddOaJxhf0=s900-c-k-c0x00ffffff-no-rj",
+    avatar: "https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740",
+    platformLogo: "/public/icon.jpg",
   },
   {
-    name: "Sabeer A",
-    username: "@SabeerA",
+    name: "Priyanka Monhanty",
+    username: "@PriyaMonhanty121",
     time: "1 Month ago",
     stars: 5,
     review:
       "It has been an Amazing Experience in Inmakes. When I was joining I was confused about my non-IT background. But the training and support team are just superb. Now I have completed my Python Master Course and am looking for a career in IT.",
-    avatar: "https://randomuser.me/api/portraits/men/75.jpg",
-    platformLogo: "https://yt3.googleusercontent.com/mhme5V2s8MFLJ7lTY1i5K4yZy6mIg8dbvPN-TYWGmDcbA5beh9qbxRWAeZ9lJNPddOaJxhf0=s900-c-k-c0x00ffffff-no-rj",
+    avatar: "https://static.vecteezy.com/system/resources/previews/004/899/680/non_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg",
+    platformLogo: "/public/icon.jpg",
   },
   {
-    name: "Riya Sharma",
-    username: "@riyasharma",
+    name: "Rakesh Kumar Nayak",
+    username: "@rakeshnayak",
     time: "2 days ago",
     stars: 4,
     review:
       "The mentorship program helped me grow tremendously. Support is always available and the community is friendly.",
-    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
-    platformLogo: "https://yt3.googleusercontent.com/mhme5V2s8MFLJ7lTY1i5K4yZy6mIg8dbvPN-TYWGmDcbA5beh9qbxRWAeZ9lJNPddOaJxhf0=s900-c-k-c0x00ffffff-no-rj",
+    avatar: "https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg?semt=ais_hybrid&w=740",
+    platformLogo: "/public/icon.jpg",
   },
   {
-    name: "Karan Patel",
-    username: "@karanpatel",
+    name: "Sweta Das",
+    username: "@DasSweta2003",
     time: "5 weeks ago",
     stars: 5,
     review:
       "Excellent training modules with practical assignments. The placement assistance was a bonus.",
-    avatar: "https://randomuser.me/api/portraits/men/33.jpg",
-    platformLogo: "https://yt3.googleusercontent.com/mhme5V2s8MFLJ7lTY1i5K4yZy6mIg8dbvPN-TYWGmDcbA5beh9qbxRWAeZ9lJNPddOaJxhf0=s900-c-k-c0x00ffffff-no-rj",
+    avatar: "https://static.vecteezy.com/system/resources/previews/001/993/889/non_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg",
+    platformLogo: "/public/icon.jpg",
   },
   {
-    name: "Neha Singh",
-    username: "@nehasingh",
+    name: "Soubhagya Ranjan Behera",
+    username: "@soubhagyaranjand",
     time: "3 months ago",
     stars: 5,
     review:
       "The live sessions are very interactive and helpful. They really prepare you well for real-world projects.",
     avatar: "https://randomuser.me/api/portraits/women/43.jpg",
-    platformLogo: "https://yt3.googleusercontent.com/mhme5V2s8MFLJ7lTY1i5K4yZy6mIg8dbvPN-TYWGmDcbA5beh9qbxRWAeZ9lJNPddOaJxhf0=s900-c-k-c0x00ffffff-no-rj",
+    platformLogo: "/public/icon.jpg",
   },
   {
-    name: "Vikram Rao",
-    username: "@vikramrao",
+    name: "Jyoti Prakash Panda",
+    username: "@jyoti_panda123",
     time: "1 week ago",
     stars: 5,
     review:
       "The trainers are experienced and patient. They helped me overcome my doubts and gain confidence.",
-    avatar: "https://randomuser.me/api/portraits/men/82.jpg",
-    platformLogo: "https://yt3.googleusercontent.com/mhme5V2s8MFLJ7lTY1i5K4yZy6mIg8dbvPN-TYWGmDcbA5beh9qbxRWAeZ9lJNPddOaJxhf0=s900-c-k-c0x00ffffff-no-rj",
+    avatar: "https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg?semt=ais_hybrid&w=740",
+    platformLogo: "/public/icon.jpg",
   },
   {
-    name: "Priya Nair",
-    username: "@priyanair",
+    name: "Manoj Kumar Sethi",
+    username: "@manoj_sehi987",
     time: "2 months ago",
     stars: 4,
     review:
       "Good course content and well-structured. Would love to see more advanced topics in future sessions.",
-    avatar: "https://randomuser.me/api/portraits/women/50.jpg",
-    platformLogo: "https://yt3.googleusercontent.com/mhme5V2s8MFLJ7lTY1i5K4yZy6mIg8dbvPN-TYWGmDcbA5beh9qbxRWAeZ9lJNPddOaJxhf0=s900-c-k-c0x00ffffff-no-rj",
+    avatar: "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg?semt=ais_hybrid&w=740",
+    platformLogo: "/public/icon.jpg",
   },
 ];
 
@@ -91,7 +91,7 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 3000);
+    }, 10000); // 10-second auto scroll
     return () => clearInterval(interval);
   }, []);
 
@@ -130,7 +130,11 @@ const Testimonials = () => {
           >
             <div className="flex items-center justify-between w-full mb-4 px-2">
               <div className="flex items-center gap-3">
-                <img src={t.avatar} alt={t.name} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full" />
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full"
+                />
                 <div>
                   <h4 className="font-bold text-sm sm:text-base">{t.name}</h4>
                   <p className="text-xs sm:text-sm text-gray-500">
@@ -138,7 +142,11 @@ const Testimonials = () => {
                   </p>
                 </div>
               </div>
-              <img src={t.platformLogo} alt="platform" className="w-6 h-6 sm:w-8 sm:h-8" />
+              <img
+                src={t.platformLogo}
+                alt="platform"
+                className="w-6 h-6 sm:w-8 sm:h-8 rounded-full"
+              />
             </div>
 
             <div className="flex text-yellow-400 mb-4 justify-center space-x-1">
