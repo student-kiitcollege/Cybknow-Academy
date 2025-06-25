@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 
 export default function HeroSection() {
-  const navigate = useNavigate(); // Initialize navigate hook
+  const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -60,7 +60,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <section className="bg-[#0A0028] text-white px-4 sm:px-6 lg:px-12 py-16 min-h-screen flex flex-col items-center justify-center">
+      <section className="bg-[#0A0028] text-white px-4 sm:px-6 lg:px-20 py-16 min-h-screen flex flex-col items-center justify-center">
         <div className="max-w-3xl w-full text-center space-y-4 animate-fadeSlideIn">
           <h1 className="text-4xl sm:text-5xl font-bold leading-tight">
             Unlock Your Potential in{" "}
@@ -71,14 +71,14 @@ export default function HeroSection() {
             career-accelerating placement support in the ever-evolving world of cyber defense.
           </p>
           <button
-            onClick={() => navigate("/all-courses")} 
+            onClick={() => navigate("/all-courses")}
             className="cursor-pointer mt-6 bg-gradient-to-r from-blue-500 to-pink-500 hover:from-blue-600 hover:to-pink-600 px-8 py-3 rounded-lg text-white font-semibold shadow-lg hover:shadow-purple-400/50 transition-transform transform hover:scale-105"
           >
             Explore Our Courses →
           </button>
         </div>
 
-        <div className="cursor-pointer w-full max-w-6xl mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4 sm:px-6">
+        <div className="w-full max-w-7xl mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 sm:px-6">
           {[
             {
               icon: "📘",
@@ -98,11 +98,15 @@ export default function HeroSection() {
           ].map((card, index) => (
             <div
               key={index}
-              className="bg-[#12003a] rounded-2xl p-6 shadow-md border border-purple-900/30 text-left hover:shadow-purple-600/30 transition-all"
+              className="bg-gradient-to-br from-purple-900 via-indigo-800 to-purple-700 rounded-2xl p-8 shadow-md border border-purple-600 text-center hover:shadow-purple-500/60 transition-all duration-300 hover:scale-105"
             >
-              <div className="text-4xl mb-4">{card.icon}</div>
-              <h3 className="text-xl font-bold text-white">{card.title}</h3>
-              <p className="text-sm text-gray-300 mt-1">{card.desc}</p>
+              <div className="flex justify-center mb-4">
+                <div className="text-4xl bg-white/10 backdrop-blur-md w-16 h-16 flex items-center justify-center rounded-full text-white shadow-md">
+                  {card.icon}
+                </div>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold text-white">{card.title}</h3>
+              <p className="text-sm sm:text-base text-gray-300 mt-2">{card.desc}</p>
             </div>
           ))}
         </div>
@@ -162,7 +166,6 @@ export default function HeroSection() {
                 <option value="Mobile App Development">Mobile App Development</option>
                 <option value="Digital Marketing">Digital Marketing</option>
               </select>
-
               <button
                 type="submit"
                 disabled={loading}
@@ -174,7 +177,6 @@ export default function HeroSection() {
           </div>
         </div>
       )}
-
       <style>{`
         @keyframes fadeSlideIn {
           0% {

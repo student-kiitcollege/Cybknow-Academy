@@ -3,139 +3,131 @@ import { useParams, useNavigate } from "react-router-dom";
 import { FaCheckCircle } from "react-icons/fa";
 import { HiOutlineDocumentText } from "react-icons/hi";
 
-const placeholderImg = "https://via.placeholder.com/600x400"; // You can customize per course if needed
-
 const courseData = {
   "ethical-hacking": {
     title: "Ethical Hacking Fundamentals",
-    description:
-      "Learn the basics of ethical hacking and penetration testing to identify vulnerabilities in systems.",
+    description: "Learn the basics of ethical hacking and penetration testing.",
     duration: "8 Weeks",
     level: "Beginner",
     instructor: "Industry Expert",
-    image: placeholderImg,
+    image: "https://png.pngtree.com/thumb_back/fh260/background/20241017/pngtree-a-hacker-in-a-hoodie-sitting-at-a-laptop-with-hologram-image_16403770.jpg",
     modules: [
       "Introduction to Core Concepts",
       "Deep Dive into Key Technologies",
       "Advanced Methodologies & Tools",
-      "Practical Application & Hands-on Labs",
-      "Capstone Project & Real-world Simulations",
+      "Hands-on Labs",
+      "Capstone Project",
     ],
     learn: [
-      "Gain a comprehensive understanding of ethical hacking fundamentals.",
-      "Master practical skills through hands-on labs and real-world scenarios.",
-      "Prepare for industry-recognized certifications (if applicable).",
-      "Develop problem-solving abilities for complex cybersecurity challenges.",
+      "Understand ethical hacking fundamentals.",
+      "Master hands-on labs.",
+      "Prepare for certifications.",
+      "Develop real-world problem solving skills.",
     ],
   },
   "penetration-testing": {
     title: "Advanced Penetration Testing",
-    description:
-      "Dive deeper into advanced pentesting techniques involving buffer overflows, advanced exploitation, wireless attacks, and more.",
+    description: "Master advanced techniques for network and web application testing.",
     duration: "12 Weeks",
     level: "Advanced",
     instructor: "Security Professional",
-    image: placeholderImg,
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReaapj756GROMBuSMq871BVBiSw3pyVWYCqJRdSWOHIB3iFVkyPN6UfWgmI6-xpZQerdc&usqp=CAU",
     modules: [
-      "Advanced Exploitation Techniques",
-      "Buffer Overflow & Memory Attacks",
-      "Wireless Penetration Testing",
-      "Red Team Operations",
-      "Capstone Lab Assessment",
+      "Advanced Exploitation",
+      "Buffer Overflows",
+      "Wireless Testing",
+      "Red Team Ops",
+      "Capstone Assessment",
     ],
     learn: [
-      "Learn advanced attack vectors and exploit development.",
-      "Conduct buffer overflow and memory-based exploits.",
-      "Simulate real-world Red Team vs Blue Team scenarios.",
-      "Practice with advanced tools and live target machines.",
+      "Exploit buffer overflows.",
+      "Use Red Team strategies.",
+      "Develop advanced tools.",
+      "Simulate enterprise attacks.",
     ],
   },
   "cloud-security": {
     title: "Cloud Security Architecture",
-    description:
-      "Learn to secure cloud-native infrastructure using AWS, Azure, and GCP best practices for architecture and governance.",
+    description: "Design secure cloud environments on AWS, Azure, and GCP.",
     duration: "10 Weeks",
     level: "Advanced",
-    instructor: "Cloud Architect",
-    image: placeholderImg,
+    instructor: "Cloud Security Expert",
+    image: "https://www.securitymagazine.com/ext/resources/images/cyber-freepik-8.jpg?1625173880",
     modules: [
-      "Cloud Security Fundamentals",
-      "IAM & Policy Management",
-      "Encryption & Compliance",
-      "Multi-Cloud Strategy & Governance",
-      "Case Studies & Capstone",
+      "Cloud Basics",
+      "IAM & Access Control",
+      "Network Security",
+      "Monitoring & Compliance",
+      "Cloud Incident Response",
     ],
     learn: [
-      "Design secure cloud architectures across platforms.",
-      "Implement IAM, encryption, and compliance policies.",
-      "Audit cloud resources and prevent misconfigurations.",
-      "Prepare for certifications like AWS Security or AZ-500.",
+      "Design secure cloud solutions.",
+      "Understand IAM and compliance.",
+      "Respond to cloud incidents.",
+      "Apply DevSecOps practices.",
     ],
   },
-  "network-defense": {
-    title: "Network Defense Essentials",
-    description:
-      "Understand firewalls, IDS/IPS, endpoint protection, and how to deploy layered defense strategies effectively.",
+  "network-security": {
+    title: "Network Security Essentials",
+    description: "Learn how to secure, monitor, and defend network infrastructures.",
     duration: "6 Weeks",
     level: "Intermediate",
-    instructor: "Network Security Specialist",
-    image: placeholderImg,
+    instructor: "Network Security Analyst",
+    image: "https://cdn.pixabay.com/photo/2016/11/29/03/36/network-1869825_1280.jpg",
     modules: [
-      "Firewall & Perimeter Security",
-      "Intrusion Detection Systems",
-      "Endpoint Defense Strategies",
-      "Threat Intelligence & Monitoring",
-      "Simulated Network Defense Scenarios",
+      "Network Fundamentals",
+      "Firewalls & VPNs",
+      "IDS & IPS Systems",
+      "Network Hardening",
+      "Threat Detection",
     ],
     learn: [
-      "Master network perimeter defense strategies.",
-      "Configure and analyze IDS/IPS alerts.",
-      "Protect endpoints from malware and intrusions.",
-      "Respond to and simulate network threats.",
+      "Secure network layers.",
+      "Configure firewalls and IDS.",
+      "Detect & analyze threats.",
+      "Monitor live traffic.",
     ],
   },
-  "web-security": {
-    title: "Web Application Security",
-    description:
-      "Explore OWASP Top 10, CSRF, SQLi, and secure coding practices to build resilient web apps.",
+  "cyberlaw-ethics": {
+    title: "Cyber Law & Ethics",
+    description: "Understand the legal and ethical considerations in cybersecurity.",
+    duration: "4 Weeks",
+    level: "Beginner",
+    instructor: "Cyber Law Expert",
+    image: "https://img.freepik.com/premium-photo/futuristic-digital-padlock-symbol-cyber-security-data-protection-concept-generative-ai_31965-113845.jpg",
+    modules: [
+      "Cyber Law Basics",
+      "Digital Privacy",
+      "Intellectual Property",
+      "Cybercrime Case Studies",
+      "Ethical Frameworks",
+    ],
+    learn: [
+      "Know digital rights and ethics.",
+      "Understand laws against cybercrime.",
+      "Handle legal compliance issues.",
+      "Evaluate cybercrime cases.",
+    ],
+  },
+  "incident-response": {
+    title: "Incident Response & Forensics",
+    description: "Learn how to handle, respond, and investigate cyber incidents.",
     duration: "8 Weeks",
-    level: "Advanced",
-    instructor: "AppSec Engineer",
-    image: placeholderImg,
+    level: "Intermediate",
+    instructor: "Forensic Analyst",
+    image: "https://img.freepik.com/free-photo/computer-security-system-icons-concept_53876-122654.jpg",
     modules: [
-      "OWASP Top 10 Deep Dive",
-      "Secure Authentication & Sessions",
-      "Injection & XSS Attacks",
-      "Vulnerability Scanning & Pentesting",
-      "Secure Coding Capstone Project",
+      "Incident Detection",
+      "Response Planning",
+      "Forensic Data Collection",
+      "Log Analysis",
+      "Reporting & Recovery",
     ],
     learn: [
-      "Identify and fix OWASP Top 10 vulnerabilities.",
-      "Build secure login systems and session flows.",
-      "Perform dynamic analysis and scan web apps.",
-      "Follow secure SDLC and best practices.",
-    ],
-  },
-  "devsecops": {
-    title: "DevSecOps Pipeline",
-    description:
-      "Automate security in CI/CD pipelines using SAST, DAST, dependency scanning, and container security.",
-    duration: "9 Weeks",
-    level: "Advanced",
-    instructor: "DevSecOps Engineer",
-    image: placeholderImg,
-    modules: [
-      "DevOps & Security Culture",
-      "SAST & DAST Integration",
-      "Container Security & Image Scanning",
-      "Secrets Management",
-      "Full Pipeline Automation Project",
-    ],
-    learn: [
-      "Embed security into DevOps workflows.",
-      "Integrate SAST/DAST in pipelines.",
-      "Secure containers and cloud-native workloads.",
-      "Manage secrets and compliance in CI/CD.",
+      "Build response strategies.",
+      "Collect and analyze evidence.",
+      "Perform forensic investigations.",
+      "Recover from cyber incidents.",
     ],
   },
 };
@@ -160,13 +152,12 @@ export default function CourseDetail() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0A0028] text-white px-6 py-12 flex flex-col lg:flex-row gap-8">
-      {/* Left Section */}
+    <div className="min-h-screen bg-[#0A0028] text-white px-4 sm:px-6 lg:px-12 py-10 flex flex-col lg:flex-row gap-10">
       <div className="flex-1">
-        <h1 className="text-3xl font-bold mb-4">{course.title}</h1>
-        <p className="text-gray-300 mb-6 max-w-2xl">{course.description}</p>
+        <h1 className="text-2xl sm:text-3xl font-bold mb-4">{course.title}</h1>
+        <p className="text-gray-300 mb-6 text-sm sm:text-base max-w-3xl">{course.description}</p>
 
-        <div className="w-full h-64 bg-gray-700 rounded-xl mb-8 overflow-hidden">
+        <div className="w-full h-56 sm:h-72 md:h-80 lg:h-96 bg-gray-700 rounded-xl mb-8 overflow-hidden">
           <img
             src={course.image}
             alt={course.title}
@@ -174,12 +165,11 @@ export default function CourseDetail() {
           />
         </div>
 
-        {/* What You'll Learn */}
         <section className="mb-10">
-          <h2 className="text-xl font-semibold mb-4">What You'll Learn</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4">What You'll Learn</h2>
           <ul className="space-y-3">
             {course.learn.map((point, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-gray-300">
+              <li key={idx} className="flex items-start gap-3 text-gray-300 text-sm sm:text-base">
                 <FaCheckCircle className="text-green-400 mt-1" size={18} />
                 <span>{point}</span>
               </li>
@@ -187,9 +177,8 @@ export default function CourseDetail() {
           </ul>
         </section>
 
-        {/* Course Modules */}
         <section>
-          <h2 className="text-xl font-semibold mb-4">Course Modules (Overview)</h2>
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4">Course Modules (Overview)</h2>
           <div className="space-y-3">
             {course.modules.map((mod, idx) => (
               <div
@@ -200,8 +189,8 @@ export default function CourseDetail() {
                   <HiOutlineDocumentText size={24} className="text-pink-400" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-white">{mod}</h4>
-                  <p className="text-sm text-gray-400">
+                  <h4 className="font-semibold text-white text-sm sm:text-base">{mod}</h4>
+                  <p className="text-xs sm:text-sm text-gray-400">
                     Detailed content for this module is being prepared.
                   </p>
                 </div>
@@ -211,27 +200,23 @@ export default function CourseDetail() {
         </section>
       </div>
 
-      {/* Right Sidebar */}
-      <div className="lg:w-[300px] w-full space-y-6">
+      <div className="lg:w-[320px] w-full space-y-6">
         <div className="bg-[#120048] p-6 rounded-xl border border-pink-500">
           <h3 className="text-lg font-bold mb-4">Course Details</h3>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-gray-400 mb-2">
             <span className="font-semibold text-white">Category:</span>{" "}
             <span className="bg-pink-500 text-white px-2 py-0.5 rounded-full text-xs ml-2">
               {course.level}
             </span>
           </p>
           <p className="text-sm text-gray-400 mt-2">
-            <span className="font-semibold text-white">Duration:</span>{" "}
-            {course.duration}
+            <span className="font-semibold text-white">Duration:</span> {course.duration}
           </p>
           <p className="text-sm text-gray-400 mt-2">
-            <span className="font-semibold text-white">Level:</span>{" "}
-            {course.level}
+            <span className="font-semibold text-white">Level:</span> {course.level}
           </p>
           <p className="text-sm text-gray-400 mt-2">
-            <span className="font-semibold text-white">Instructor:</span>{" "}
-            {course.instructor}
+            <span className="font-semibold text-white">Instructor:</span> {course.instructor}
           </p>
           <button className="w-full mt-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2 rounded-lg text-sm font-semibold">
             Enroll Now

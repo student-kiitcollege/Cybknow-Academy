@@ -2,12 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaClock, FaShieldAlt, FaBolt, FaCloud } from "react-icons/fa";
 
-const logoImg = "https://cybknow.com/wp-content/uploads/2025/02/logo.png";
-
 const features = [
   {
     id: "ethical-hacking",
-    img: logoImg,
+    img: "https://png.pngtree.com/thumb_back/fh260/background/20241017/pngtree-a-hacker-in-a-hoodie-sitting-at-a-laptop-with-hologram-image_16403770.jpg",
     title: "Ethical Hacking Fundamentals",
     level: "Beginner",
     description: "Learn the basics of ethical hacking and penetration testing.",
@@ -16,7 +14,7 @@ const features = [
   },
   {
     id: "penetration-testing",
-    img: logoImg,
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReaapj756GROMBuSMq871BVBiSw3pyVWYCqJRdSWOHIB3iFVkyPN6UfWgmI6-xpZQerdc&usqp=CAU",
     title: "Advanced Penetration Testing",
     level: "Advanced",
     description: "Master advanced techniques for network and web application testing.",
@@ -25,68 +23,39 @@ const features = [
   },
   {
     id: "cloud-security",
-    img: logoImg,
+    img: "https://www.securitymagazine.com/ext/resources/images/cyber-freepik-8.jpg?1625173880",
     title: "Cloud Security Architecture",
     level: "Advanced",
     description: "Design secure cloud environments on major platforms.",
     duration: "10 Weeks",
     icon: <FaCloud className="text-blue-400" size={20} />,
   },
-  {
-    id: "network-defense",
-    img: logoImg,
-    title: "Network Defense Essentials",
-    level: "Intermediate",
-    description: "Defend systems from real-world attacks using proven strategies.",
-    duration: "6 Weeks",
-    icon: <FaShieldAlt className="text-blue-400" size={20} />,
-  },
-  {
-    id: "web-security",
-    img: logoImg,
-    title: "Web Application Security",
-    level: "Advanced",
-    description: "Protect web apps with OWASP-based security practices.",
-    duration: "8 Weeks",
-    icon: <FaBolt className="text-blue-400" size={20} />,
-  },
-  {
-    id: "devsecops",
-    img: logoImg,
-    title: "DevSecOps Pipeline",
-    level: "Advanced",
-    description: "Integrate security into CI/CD with modern DevSecOps.",
-    duration: "9 Weeks",
-    icon: <FaCloud className="text-blue-400" size={20} />,
-  },
 ];
 
 const ProgramFeatures = () => {
-  const visibleFeatures = features.slice(0, 3); // Show only first 3
-
   return (
     <section className="bg-[#0A0028] py-16 px-4 text-white overflow-hidden">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 leading-snug">
         EXPLORE OUR <span className="text-pink-500">POPULAR COURSES</span>
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
-        {visibleFeatures.map((item, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {features.map((item, index) => (
           <div
             key={index}
-            className="bg-[#12003a] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.03]"
+            className="bg-[#12003a] rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.03] flex flex-col"
           >
             <div className="relative">
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-52 object-contain p-4 bg-white"
+                className="w-full h-52 sm:h-60 md:h-64 object-cover bg-white"
               />
               <span className="absolute top-3 right-3 bg-pink-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
                 {item.level}
               </span>
             </div>
-            <div className="p-6">
+            <div className="p-5 sm:p-6 flex flex-col flex-grow">
               <div className="flex items-center gap-2 mb-2 text-blue-400 font-semibold text-sm">
                 {item.icon}
                 <h3 className="text-white text-lg font-bold">{item.title}</h3>
@@ -98,7 +67,7 @@ const ProgramFeatures = () => {
               </div>
               <Link
                 to={`/course/${item.id}`}
-                className="w-full block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl text-center transition duration-300"
+                className="mt-auto block bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 rounded-xl text-center transition duration-300"
               >
                 View Details →
               </Link>

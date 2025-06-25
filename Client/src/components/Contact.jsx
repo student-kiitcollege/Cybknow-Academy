@@ -36,24 +36,23 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[#10042c] text-white px-4 py-12 md:px-16">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-4">
+    <div className="min-h-screen bg-[#10042c] text-white px-4 py-12 md:px-12 lg:px-20">
+      {/* Header */}
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
         Contact Us – <span className="text-white">Cybknow Academy</span>
       </h1>
-      <p className="text-gray-300 mb-10 text-lg">
+      <p className="text-gray-300 mb-10 text-base sm:text-lg max-w-3xl">
         Get in touch with Cybknow Academy. We're here to answer your questions and provide support.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Left - Send Message Form */}
-        <div className="bg-[#1a0b3c] rounded-xl p-6 shadow-md">
-          <h2 className="flex items-center gap-2 text-xl font-semibold mb-4">
+        <div className="bg-[#1a0b3c] rounded-xl p-6 sm:p-8 shadow-md">
+          <h2 className="flex items-center gap-2 text-lg sm:text-xl font-semibold mb-4">
             <FaEnvelopeOpenText className="text-blue-400" />
             Send Us a Message
           </h2>
           <p className="text-gray-400 text-sm mb-6">
-            Fill out the form below, and our team at Cybknow Academy will get back to you as soon as
-            possible. We look forward to hearing from you!
+            Fill out the form below, and our team at Cybknow Academy will get back to you as soon as possible.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -95,7 +94,7 @@ export default function Contact() {
             />
             <button
               type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-md transition duration-300 cursor-pointer"
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-md transition duration-300"
             >
               Send Message
             </button>
@@ -103,18 +102,14 @@ export default function Contact() {
           </form>
         </div>
 
-        <div className="bg-[#1a0b3c] rounded-xl p-6 flex flex-col justify-center items-center text-center shadow-md">
-          <h2 className="flex items-center gap-2 text-xl font-semibold mb-4">
-            🤖 AI Chat Support
-          </h2>
-          <p className="text-gray-400 text-sm mb-6">
-            For instant answers to common questions, try our AI-powered chatbot from Cybknow
-            Academy.
+        <div className="bg-[#1a0b3c] rounded-xl p-6 sm:p-8 flex flex-col justify-center items-center text-center shadow-md">
+          <h2 className="text-lg sm:text-xl font-semibold mb-4">🤖 AI Chat Support</h2>
+          <p className="text-gray-400 text-sm mb-4 max-w-xs sm:max-w-md">
+            For instant answers to common questions, try our AI-powered chatbot from Cybknow Academy.
           </p>
           <div className="text-6xl text-blue-400 mb-6">💬</div>
-          <p className="text-gray-400 text-sm mb-6">
-            Our chatbot is currently under development. Please use the contact form for inquiries to
-            Cybknow Academy.
+          <p className="text-gray-400 text-sm mb-6 max-w-xs sm:max-w-md">
+            Our chatbot is currently under development. Please use the contact form for inquiries to Cybknow Academy.
           </p>
           <button
             disabled
