@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaShieldAlt } from "react-icons/fa";
+import cyber from "../assets/Cyber.png"; 
 
 const PlacementAssistance = () => {
   return (
@@ -37,15 +38,16 @@ const PlacementAssistance = () => {
           </Link>
         </div>
 
-       <div className="flex-1 w-full">
-  <div className="bg-gray-200 rounded-2xl w-full h-64 sm:h-80 md:h-96 flex items-center justify-center overflow-hidden">
+     <div className="flex-1 w-full">
+  <div className="relative w-full cursor-pointer h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden shadow-xl">
     <img
-      src="https://maceit.co.nz/wp-content/uploads/2024/06/2-55-1024x576.jpg"
+      src={cyber}
       alt="Cybersecurity Banner"
-      className="object-cover w-full h-full rounded-2xl"
+      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-105"
     />
   </div>
 </div>
+
 
       </div>
     </section>

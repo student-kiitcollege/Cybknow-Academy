@@ -9,7 +9,7 @@ const features = [
     title: "Ethical Hacking Fundamentals",
     level: "Beginner",
     description: "Learn the basics of ethical hacking and penetration testing.",
-    duration: "8 Weeks",
+    duration: "4 Months",
     icon: <FaShieldAlt className="text-blue-400" size={20} />,
   },
   {

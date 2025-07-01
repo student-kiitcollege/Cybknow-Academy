@@ -7,7 +7,7 @@ const courseData = {
   "ethical-hacking": {
     title: "Ethical Hacking Fundamentals",
     description: "Learn the basics of ethical hacking and penetration testing.",
-    duration: "8 Weeks",
+    duration: "4 Months",
     level: "Beginner",
     instructor: "Industry Expert",
     image: "https://png.pngtree.com/thumb_back/fh260/background/20241017/pngtree-a-hacker-in-a-hoodie-sitting-at-a-laptop-with-hologram-image_16403770.jpg",
