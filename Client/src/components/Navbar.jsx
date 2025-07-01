@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiMenu, HiX } from "react-icons/hi";
+import logo from "../assets/icon.jpg"; 
 
 export default function Navbar() {
   const location = useLocation();
@@ -30,13 +31,15 @@ export default function Navbar() {
     >
       <div className="flex items-center space-x-2">
         <img
-          src="https://cybknow.com/wp-content/uploads/2025/02/logo.png"
+          src={logo}
           alt="Logo"
-          className="h-10 sm:h-12"
+          className="h-10 sm:h-12 object-contain"
         />
-        <h1 className="text-white font-bold text-lg sm:text-2xl">
-          Cybknow <span className="font-medium">Academy</span>
+        
+        <h1 className="text-white font-bold text-1xl sm:text-2xl">
+         CYBKNOW ACADEMY
         </h1>
+
       </div>
 
       <ul className="hidden md:flex space-x-8 items-center text-base font-medium">

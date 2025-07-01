@@ -42,11 +42,12 @@ const Footer = () => {
           <h3 className="text-lg font-bold mb-3">Support</h3>
           <ul className="text-sm text-gray-300 space-y-2">
             <li className="flex items-center gap-2">
-              <FaPhoneAlt /> +91 8117842014
+              <FaPhoneAlt />
+              <a href="tel:+918117842014" className="hover:underline">+91 8117842014</a>
             </li>
-            <li className="ml-8 sm:ml-6">+91 9078558087</li>
             <li className="flex items-center gap-2">
-              <FaEnvelope /> info@cybknow.com
+              <FaEnvelope />
+              <a href="mailto:info@cybknow.com" className="hover:underline">info@cybknow.com</a>
             </li>
           </ul>
         </div>
@@ -121,7 +122,14 @@ const Footer = () => {
             <FaFacebookF size={24} />
           </a>
         </div>
-        <p>Cybknow.Com © All rights reserved</p>
+        <a
+          href="https://www.google.com/search?q=cybknow&oq=c&gs_lcrp=EgZjaHJvbWUqDggBEEUYJxg7GIAEGIoFMg4IABBFGCcYOxiABBiKBTIOCAEQRRgnGDsYgAQYigUyBggCEEUYOTIGCAMQRRg7MgwIBBAuGEMYgAQYigUyDAgFEC4YQxiABBiKBTIMCAYQLhhDGIAEGIoFMhMIBxAuGIMBGMcBGLEDGNEDGIAEMg8ICBAAGEMYsQMYgAQYigUyDQgJEAAYgwEYsQMYgATSAQkxNDk0ajBqMTWoAgmwAgHxBWEdpgslGzjr&sourceid=chrome&ie=UTF-8"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:underline text-purple-400"
+        >
+          Cybknow.Com © All rights reserved
+        </a>
       </div>
     </footer>
   );
