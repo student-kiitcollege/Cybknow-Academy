@@ -39,10 +39,10 @@ const PlacedPopup = () => {
             PLACED
           </h1>
           <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold text-black">
-            SAURAV JENA
+            SATYA PRAKASH SWAIN
           </h2>
           <p className="text-sm sm:text-base text-gray-500 mt-1">
-            CYBERSECURITY ANALYST, DUBAI
+            TCS PRIME, CHENNAI
           </p>
         </div>
 
