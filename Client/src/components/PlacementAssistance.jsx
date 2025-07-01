@@ -37,11 +37,16 @@ const PlacementAssistance = () => {
           </Link>
         </div>
 
-        <div className="flex-1 w-full">
-          <div className="bg-gray-200 rounded-2xl w-full h-64 sm:h-80 md:h-96 flex items-center justify-center text-gray-500 text-xl sm:text-2xl font-bold">
-            600 × 400
-          </div>
-        </div>
+       <div className="flex-1 w-full">
+  <div className="bg-gray-200 rounded-2xl w-full h-64 sm:h-80 md:h-96 flex items-center justify-center overflow-hidden">
+    <img
+      src="https://maceit.co.nz/wp-content/uploads/2024/06/2-55-1024x576.jpg"
+      alt="Cybersecurity Banner"
+      className="object-cover w-full h-full rounded-2xl"
+    />
+  </div>
+</div>
+
       </div>
     </section>
   );
