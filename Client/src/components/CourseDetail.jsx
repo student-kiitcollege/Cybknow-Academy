@@ -12,7 +12,7 @@ const courseData = {
     duration: "4 Months",
     level: "Beginner",
     instructor: "Industry Expert",
-    image: "https://png.pngtree.com/thumb_back/fh260/background/20241017/pngtree-a-hacker-in-a-hoodie-sitting-at-a-laptop-with-hologram-image_16403770.jpg",
+    image: "https://t4.ftcdn.net/jpg/12/61/69/15/360_F_1261691565_I3c94Fvpr3Ba4hCmpTQau5UUx77sTFR5.jpg",
     learn: [
       "Understand ethical hacking fundamentals.",
       "Master hands-on labs.",
@@ -20,13 +20,13 @@ const courseData = {
       "Develop real-world problem solving skills.",
     ],
   },
-  "penetration-testing": {
+  "Cyber Commando Training": {
     title: "Cyber Commando Training",
     description: "Master advanced techniques for network and web application testing.",
     duration: "6 Months",
     level: "Beginners to professionals",
     instructor: "Security Professional",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReaapj756GROMBuSMq871BVBiSw3pyVWYCqJRdSWOHIB3iFVkyPN6UfWgmI6-xpZQerdc&usqp=CAU",
+    image: "https://img.freepik.com/premium-vector/purple-shield-with-keyhole-it_42077-16825.jpg",
     learn: [
       "Exploit buffer overflows.",
       "Use Red Team strategies.",

@@ -5,7 +5,7 @@ import { FaClock, FaShieldAlt, FaBolt, FaCloud } from "react-icons/fa";
 const features = [
   {
     id: "ethical-hacking",
-    img: "https://png.pngtree.com/thumb_back/fh260/background/20241017/pngtree-a-hacker-in-a-hoodie-sitting-at-a-laptop-with-hologram-image_16403770.jpg",
+    img: "https://t4.ftcdn.net/jpg/12/61/69/15/360_F_1261691565_I3c94Fvpr3Ba4hCmpTQau5UUx77sTFR5.jpg",
     title: "Ethical Hacking Fundamentals",
     level: "Beginner",
     description: "Learn the basics of ethical hacking and penetration testing.",
@@ -13,14 +13,14 @@ const features = [
   },
   {
     id: "penetration-testing",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReaapj756GROMBuSMq871BVBiSw3pyVWYCqJRdSWOHIB3iFVkyPN6UfWgmI6-xpZQerdc&usqp=CAU",
+    img: "https://img.freepik.com/premium-vector/purple-shield-with-keyhole-it_42077-16825.jpg",
     title: "Cyber Commando Training",
     level: "Advanced",
     description: "Intensive six-month program with hands-on cybersecurity, forensics, and defense training by Cybknow experts.",
     duration: "4 Months",
   },
   {
-    id: "cloud-security",
+    id: "Zero to Mastery Cybersecurity",
     img: "https://www.securitymagazine.com/ext/resources/images/cyber-freepik-8.jpg?1625173880",
     title: "Zero to Mastery Cybersecurity",
     level: "Advanced",

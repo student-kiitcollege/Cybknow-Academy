@@ -112,6 +112,23 @@ export default function HeroSection() {
         </div>
       </section>
 
+      <a
+  href="https://wa.me/918117842014"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="fixed bottom-6 right-6 z-50"
+  aria-label="Chat on WhatsApp"
+>
+  <div className="bg-green-500 hover:bg-green-600 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      alt="WhatsApp"
+      className="w-8 h-8"
+    />
+  </div>
+</a>
+
+
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-4">
           <div className="bg-white rounded-lg w-full max-w-md p-6 shadow-xl animate-fadeSlideIn relative">
@@ -177,6 +194,7 @@ export default function HeroSection() {
           </div>
         </div>
       )}
+
       <style>{`
         @keyframes fadeSlideIn {
           0% {
