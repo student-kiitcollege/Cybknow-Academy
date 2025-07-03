@@ -42,10 +42,11 @@ const courseData = {
     instructor: "Cloud Security Expert",
     image: "https://www.securitymagazine.com/ext/resources/images/cyber-freepik-8.jpg?1625173880",
     learn: [
-      "Design secure cloud solutions.",
-      "Understand IAM and compliance.",
-      "Respond to cloud incidents.",
-      "Apply DevSecOps practices.",
+      "Systematic foundation building from comprehensive cybersecurity education.",
+      "Hands-on practical elements from industry-focused training.",
+      "Industry-standard methodologies and certification alignment.",
+      "Progressive skill development from beginner to expert level.",
+      "Real-world application focus with practical labs and projects"
     ],
   },
 };
