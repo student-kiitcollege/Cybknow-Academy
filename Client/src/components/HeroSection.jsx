@@ -113,7 +113,7 @@ export default function HeroSection() {
       </section>
 
       <a
-  href="https://wa.me/918117842014"
+  href="https://wa.me/918117842014?text=Hello"
   target="_blank"
   rel="noopener noreferrer"
   className="fixed bottom-6 right-6 z-50"
