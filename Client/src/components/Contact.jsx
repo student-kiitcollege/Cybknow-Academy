@@ -1,124 +1,126 @@
 import React, { useState } from "react";
-import { FaEnvelopeOpenText } from "react-icons/fa";
+import { FaCalendarAlt } from "react-icons/fa";
 
-export default function Contact() {
+export default function FreeDemoRegistration() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    subject: "",
-    message: "",
+    phone: "",
+    preferredTime: "",
   });
   const [status, setStatus] = useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setStatus("Sending...");
+    const isEmpty = Object.values(formData).some((val) => val === "");
+    if (isEmpty) return setStatus("❌ Please fill all fields");
 
-    try {
-      const res = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-      setStatus(data.success ? "✅ Message sent successfully!" : "❌ Failed to send.");
-    } catch (err) {
-      console.error(err);
-      setStatus("❌ Error sending message.");
-    }
-
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setShowSuccessModal(true);
+    setFormData({ name: "", email: "", phone: "", preferredTime: "" });
   };
 
   return (
     <div className="min-h-screen bg-[#10042c] text-white px-4 py-12 md:px-12 lg:px-20">
-      {/* Header */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
-        Contact Us – <span className="text-white">Cybknow Academy</span>
+      <h1 className="text-3xl sm:text-4xl font-bold mb-4 text-center">
+        Register for a <span className="text-blue-400">Free Demo Class</span>
       </h1>
-      <p className="text-gray-300 mb-10 text-base sm:text-lg max-w-3xl">
-        Get in touch with Cybknow Academy. We're here to answer your questions and provide support.
+      <p className="text-gray-300 mb-10 text-center max-w-2xl mx-auto">
+        Choose your preferred slot and experience our teaching quality at Cybknow Academy. It's free!
       </p>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-[#1a0b3c] rounded-xl p-6 sm:p-8 shadow-md">
-          <h2 className="flex items-center gap-2 text-lg sm:text-xl font-semibold mb-4">
-            <FaEnvelopeOpenText className="text-blue-400" />
-            Send Us a Message
-          </h2>
-          <p className="text-gray-400 text-sm mb-6">
-            Fill out the form below, and our team at Cybknow Academy will get back to you as soon as possible.
-          </p>
-
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-md bg-[#140836] border border-gray-600 focus:ring-2 focus:ring-blue-500 text-white"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email Address"
-              value={formData.email}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-md bg-[#140836] border border-gray-600 focus:ring-2 focus:ring-blue-500 text-white"
-              required
-            />
-            <input
-              type="text"
-              name="subject"
-              placeholder="Subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-md bg-[#140836] border border-gray-600 focus:ring-2 focus:ring-blue-500 text-white"
-              required
-            />
-            <textarea
-              name="message"
-              placeholder="Your message here..."
-              rows="5"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-md bg-[#140836] border border-gray-600 focus:ring-2 focus:ring-blue-500 text-white resize-none"
-              required
-            />
-            <button
-              type="submit"
-              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-md transition duration-300"
-            >
-              Send Message
-            </button>
-            {status && <p className="text-sm text-center mt-2 text-gray-300">{status}</p>}
-          </form>
-        </div>
-
-        <div className="bg-[#1a0b3c] rounded-xl p-6 sm:p-8 flex flex-col justify-center items-center text-center shadow-md">
-          <h2 className="text-lg sm:text-xl font-semibold mb-4">🤖 AI Chat Support</h2>
-          <p className="text-gray-400 text-sm mb-4 max-w-xs sm:max-w-md">
-            For instant answers to common questions, try our AI-powered chatbot from Cybknow Academy.
-          </p>
-          <div className="text-6xl text-blue-400 mb-6">💬</div>
-          <p className="text-gray-400 text-sm mb-6 max-w-xs sm:max-w-md">
-            Our chatbot is currently under development. Please use the contact form for inquiries to Cybknow Academy.
-          </p>
-          <button
-            disabled
-            className="bg-gray-700 text-gray-300 py-2 px-6 rounded-md font-medium cursor-not-allowed"
+      <div className="max-w-2xl mx-auto bg-[#1a0b3c] rounded-xl p-8 shadow-md">
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <input
+            type="text"
+            name="name"
+            placeholder="Full Name"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-md bg-[#140836] border border-gray-600 focus:ring-2 focus:ring-blue-500 text-white"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-md bg-[#140836] border border-gray-600 focus:ring-2 focus:ring-blue-500 text-white"
+            required
+          />
+          <input
+            type="text"
+            name="phone"
+            placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-md bg-[#140836] border border-gray-600 focus:ring-2 focus:ring-blue-500 text-white"
+            required
+          />
+          <select
+            name="preferredTime"
+            value={formData.preferredTime}
+            onChange={handleChange}
+            className="w-full px-4 py-3 rounded-md bg-[#140836] border border-gray-600 focus:ring-2 focus:ring-blue-500 text-white"
+            required
           >
-            Start Chat (Coming Soon)
+            <option value="" disabled>Select Time Slot</option>
+            <option value="10AM - 12PM">10AM - 12PM</option>
+            <option value="2PM - 4PM">2PM - 4PM</option>
+            <option value="6PM - 8PM">6PM - 8PM</option>
+          </select>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-500 hover:bg-blue-600 cursor-pointer text-white font-semibold py-3 rounded-md transition duration-300"
+          >
+            Register Now
           </button>
-        </div>
+          {status && <p className="text-sm text-center mt-2 text-gray-300">{status}</p>}
+        </form>
       </div>
+
+      {showSuccessModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50">
+          <div className="bg-white text-black rounded-2xl p-8 w-full max-w-md shadow-2xl relative animate-fadeIn">
+            <button
+              onClick={() => setShowSuccessModal(false)}
+              className="absolute top-3 right-4 text-black text-xl font-bold hover:text-red-500"
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl font-bold mb-4 text-purple-700 text-center">
+              🎉 Registration Successful!
+            </h2>
+            <p className="text-gray-700 text-center">
+              Thank you for registering for a free demo class! We'll contact you soon via email or phone.
+            </p>
+            <div className="mt-6 flex justify-center">
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                className="bg-purple-600 text-white px-6 py-2 rounded-lg hover:bg-purple-700 transition cursor-pointer"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <style>{`
+        @keyframes fadeIn {
+          0% { opacity: 0; transform: scale(0.9); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out;
+        }
+      `}</style>
     </div>
   );
 }

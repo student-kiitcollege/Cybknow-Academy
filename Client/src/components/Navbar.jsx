@@ -63,7 +63,7 @@ export default function Navbar() {
         to="/contact"
         className="hidden md:inline-block bg-gradient-to-r from-blue-500 to-pink-500 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:opacity-90 transition duration-300 text-sm sm:text-base"
       >
-        Get in Touch
+        Get a free demo class
       </Link>
 
       <button
