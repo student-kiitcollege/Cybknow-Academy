@@ -112,13 +112,13 @@ export default function HeroSection() {
         </div>
       </section>
 
-      <a
-  href="https://wa.me/918117842014?text=Hello"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="fixed bottom-6 right-6 z-50"
-  aria-label="Chat on WhatsApp"
->
+    <a
+      href="https://wa.me/918117842014?text=Hello%20Cybknow%20Team%2C%20I'm%20interested%20in%20your%20courses."
+      target="_blank"
+      rel="noopener noreferrer"
+      className="fixed bottom-6 right-6 z-50"
+      aria-label="Chat on WhatsApp"
+    >
   <div className="bg-green-500 hover:bg-green-600 rounded-full p-3 shadow-lg transition-transform transform hover:scale-110">
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
