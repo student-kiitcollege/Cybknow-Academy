@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   FaPhoneAlt,
   FaEnvelope,
@@ -46,7 +47,7 @@ const Footer = () => {
                 Register
               </button>
             </li>
-            <li><a href="/contact" className="hover:underline">Contact Us</a></li>
+            <li><Link to="/support" className="hover:underline">Contact Us</Link></li>
             <li><a href="#" className="hover:underline">Privacy Policy</a></li>
             <li><a href="#" className="hover:underline">Refund Policy</a></li>
             <li><a href="#" className="hover:underline">Terms And Conditions</a></li>
