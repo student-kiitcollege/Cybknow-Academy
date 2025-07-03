@@ -10,25 +10,22 @@ const features = [
     level: "Beginner",
     description: "Learn the basics of ethical hacking and penetration testing.",
     duration: "4 Months",
-    icon: <FaShieldAlt className="text-blue-400" size={20} />,
   },
   {
     id: "penetration-testing",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReaapj756GROMBuSMq871BVBiSw3pyVWYCqJRdSWOHIB3iFVkyPN6UfWgmI6-xpZQerdc&usqp=CAU",
-    title: "Advanced Penetration Testing",
-    level: "Advanced",
+    title: "Cyber Commando Training",
+    level: "Beginners to professionals",
     description: "Master advanced techniques for network and web application testing.",
-    duration: "12 Weeks",
-    icon: <FaBolt className="text-blue-400" size={20} />,
+    duration: "6 Months",
   },
   {
-    id: "cloud-security",
+    id: "Zero to Mastery Cybersecurity",
     img: "https://www.securitymagazine.com/ext/resources/images/cyber-freepik-8.jpg?1625173880",
-    title: "Cloud Security Architecture",
-    level: "Advanced",
+    title: "Zero to Mastery Cybersecurity",
+    level: "Absolute beginners",
     description: "Design secure cloud environments on major platforms.",
-    duration: "10 Weeks",
-    icon: <FaCloud className="text-blue-400" size={20} />,
+    duration: "4 Months",
   },
   {
     id: "network-defense",
@@ -37,7 +34,6 @@ const features = [
     level: "Intermediate",
     description: "Defend systems from real-world attacks using proven strategies.",
     duration: "6 Weeks",
-    icon: <FaShieldAlt className="text-blue-400" size={20} />,
   },
   {
     id: "web-security",
@@ -46,7 +42,6 @@ const features = [
     level: "Advanced",
     description: "Protect web apps with OWASP-based security practices.",
     duration: "8 Weeks",
-    icon: <FaBolt className="text-blue-400" size={20} />,
   },
   {
     id: "devsecops",
@@ -55,7 +50,6 @@ const features = [
     level: "Advanced",
     description: "Integrate security into CI/CD with modern DevSecOps.",
     duration: "9 Weeks",
-    icon: <FaCloud className="text-blue-400" size={20} />,
   },
 ];
 

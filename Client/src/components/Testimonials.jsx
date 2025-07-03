@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { FaStar } from "react-icons/fa";
+import logo from "../assets/icon.jpg"; 
 
 const testimonials = [
   {
@@ -10,7 +11,7 @@ const testimonials = [
     review:
       "Great place to learn new skills. Mentors are too good, especially Sangram. He has cleared all my doubts regardless of time. The way online internship is organized is really good.",
     avatar: "https://img.freepik.com/premium-vector/young-man-avatar-character-due-avatar-man-vector-icon-cartoon-illustration_1186924-4438.jpg?semt=ais_hybrid&w=740",
-    platformLogo: "/public/icon.jpg",
+    platformLogo: logo,
   },
   {
     name: "Subham Parta",
@@ -20,7 +21,7 @@ const testimonials = [
     review:
       "A great company to gain experience, learn, and develop valuable skills. The staff and placement officers provide excellent guidance, making the learning experience even more enriching.",
     avatar: "https://img.freepik.com/premium-vector/person-with-blue-shirt-that-says-name-person_1029948-7040.jpg?semt=ais_hybrid&w=740",
-    platformLogo: "/public/icon.jpg",
+    platformLogo: logo,
   },
   {
     name: "Priyanka Monhanty",
@@ -30,7 +31,7 @@ const testimonials = [
     review:
       "It has been an Amazing Experience in Inmakes. When I was joining I was confused about my non-IT background. But the training and support team are just superb. Now I have completed my Python Master Course and am looking for a career in IT.",
     avatar: "https://static.vecteezy.com/system/resources/previews/004/899/680/non_2x/beautiful-blonde-woman-with-makeup-avatar-for-a-beauty-salon-illustration-in-the-cartoon-style-vector.jpg",
-    platformLogo: "/public/icon.jpg",
+    platformLogo: logo,
   },
   {
     name: "Rakesh Kumar Nayak",
@@ -40,7 +41,7 @@ const testimonials = [
     review:
       "The mentorship program helped me grow tremendously. Support is always available and the community is friendly.",
     avatar: "https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg?semt=ais_hybrid&w=740",
-    platformLogo: "/public/icon.jpg",
+    platformLogo: logo,
   },
   {
     name: "Sweta Das",
@@ -50,7 +51,7 @@ const testimonials = [
     review:
       "Excellent training modules with practical assignments. The placement assistance was a bonus.",
     avatar: "https://static.vecteezy.com/system/resources/previews/001/993/889/non_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg",
-    platformLogo: "/public/icon.jpg",
+    platformLogo: logo,
   },
   {
     name: "Soubhagya Ranjan Behera",
@@ -60,7 +61,7 @@ const testimonials = [
     review:
       "The live sessions are very interactive and helpful. They really prepare you well for real-world projects.",
     avatar: "https://randomuser.me/api/portraits/women/43.jpg",
-    platformLogo: "/public/icon.jpg",
+    platformLogo: logo,
   },
   {
     name: "Jyoti Prakash Panda",
@@ -70,7 +71,7 @@ const testimonials = [
     review:
       "The trainers are experienced and patient. They helped me overcome my doubts and gain confidence.",
     avatar: "https://img.freepik.com/premium-vector/male-face-avatar-icon-set-flat-design-social-media-profiles_1281173-3806.jpg?semt=ais_hybrid&w=740",
-    platformLogo: "/public/icon.jpg",
+    platformLogo: logo,
   },
   {
     name: "Manoj Kumar Sethi",
@@ -80,7 +81,7 @@ const testimonials = [
     review:
       "Good course content and well-structured. Would love to see more advanced topics in future sessions.",
     avatar: "https://img.freepik.com/free-vector/smiling-young-man-illustration_1308-174669.jpg?semt=ais_hybrid&w=740",
-    platformLogo: "/public/icon.jpg",
+    platformLogo: logo,
   },
 ];
 

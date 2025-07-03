@@ -28,7 +28,7 @@ export default function Support() {
                 <label className="block text-sm font-medium mb-1">Full Name</label>
                 <input
                   type="text"
-                  placeholder="John Doe"
+                  placeholder="Enter Your Name"
                   className="w-full px-4 py-2 bg-[#0A0028] border border-[#2D1E60] rounded-md text-white placeholder-gray-400 text-sm sm:text-base"
                 />
               </div>
@@ -36,7 +36,7 @@ export default function Support() {
                 <label className="block text-sm font-medium mb-1">Email Address</label>
                 <input
                   type="email"
-                  placeholder="you@example.com"
+                  placeholder="Enter Your Email"
                   className="w-full px-4 py-2 bg-[#0A0028] border border-[#2D1E60] rounded-md text-white placeholder-gray-400 text-sm sm:text-base"
                 />
               </div>
