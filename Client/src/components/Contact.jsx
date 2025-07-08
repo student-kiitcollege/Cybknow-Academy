@@ -81,6 +81,33 @@ export default function FreeDemoRegistration() {
             </span>
           </li>
         </ul>
+
+        {/* Testimonials Section */}
+        <div className="mt-8 space-y-6">
+          <h3 className="text-2xl font-semibold text-white">What Our Students Say</h3>
+          <div className="bg-[#29195d] p-4 rounded-xl shadow-lg">
+            <p className="text-gray-300 italic">“This academy helped me land a cybersecurity role in just 3 months!”</p>
+            <div className="mt-2 flex items-center gap-3">
+              <img
+                src="https://i.pravatar.cc/40?img=1"
+                alt="Student"
+                className="w-10 h-10 rounded-full"
+              />
+              <span className="text-white font-medium">Anjali Sharma</span>
+            </div>
+          </div>
+          <div className="bg-[#29195d] p-4 rounded-xl shadow-lg">
+            <p className="text-gray-300 italic">“Great instructors and real-world projects. Highly recommend Cybknow!”</p>
+            <div className="mt-2 flex items-center gap-3">
+              <img
+                src="https://i.pravatar.cc/40?img=2"
+                alt="Student"
+                className="w-10 h-10 rounded-full"
+              />
+              <span className="text-white font-medium">Rahul Mehta</span>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Right Side: Form */}
