@@ -8,7 +8,7 @@ const features = [
     img: "https://t4.ftcdn.net/jpg/12/61/69/15/360_F_1261691565_I3c94Fvpr3Ba4hCmpTQau5UUx77sTFR5.jpg",
     title: "Ethical Hacking Fundamentals",
     level: "Beginner",
-    description: "Learn the basics of ethical hacking and penetration testing.",
+    description:"Learn the basics of ethical hacking and penetration testing in this foundational program designed for beginners. Build essential skills through hands-on labs and real-world examples guided by Cybknow experts.",
     duration: "4 Months",
   },
   {
@@ -17,7 +17,7 @@ const features = [
     title: "Cyber Commando Training",
     level: "Advanced",
     description: "Intensive six-month program with hands-on cybersecurity, forensics, and defense training by Cybknow experts.",
-    duration: "4 Months",
+    duration: "6 Months",
   },
   {
     id: "Zero to Mastery Cybersecurity",

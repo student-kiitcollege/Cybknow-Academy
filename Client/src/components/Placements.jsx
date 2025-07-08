@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiExternalLink } from "react-icons/fi";
 import { MdLocationOn } from "react-icons/md";
 import { FaBuilding, FaBriefcase } from "react-icons/fa";
@@ -47,6 +47,14 @@ const jobs = [
 ];
 
 export default function Placements() {
+  const [showForm, setShowForm] = useState(false);
+  const [selectedJob, setSelectedJob] = useState(null);
+
+  const handleApply = (job) => {
+    setSelectedJob(job);
+    setShowForm(true);
+  };
+
   return (
     <div className="min-h-screen bg-[#0A0028] text-white px-4 sm:px-6 lg:px-20 py-12">
       <div className="max-w-7xl mx-auto">
@@ -95,18 +103,60 @@ export default function Placements() {
                 {job.description}
               </p>
 
-              <a
-                href={job.link}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => handleApply(job)}
                 className="mt-auto bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 rounded-lg flex justify-center items-center gap-2 transition"
               >
                 Apply Now <FiExternalLink size={16} />
-              </a>
+              </button>
             </div>
           ))}
         </div>
       </div>
+
+      {showForm && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md bg-black/60">
+          <div className="bg-white text-black rounded-2xl p-8 w-full max-w-lg shadow-2xl relative animate-fadeIn">
+            <button
+              onClick={() => setShowForm(false)}
+              className="absolute top-3 right-4 text-black text-xl font-bold hover:text-red-500"
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl font-bold mb-6 text-center text-purple-800 cursor-pointer">
+              Apply for {selectedJob?.title}
+            </h2>
+            <form className="space-y-5">
+              <input
+                type="text"
+                placeholder="Your Full Name"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+              />
+              <input
+                type="email"
+                placeholder="Email Address"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+              />
+              <input
+                type="text"
+                placeholder="Phone Number"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+              />
+              <input
+                type="file"
+                accept="application/pdf,application/msword"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm text-sm"
+              />
+              <button
+                type="submit"
+                className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-2 rounded-lg font-semibold shadow-md hover:shadow-xl transition duration-300"
+              >
+                Submit Application
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

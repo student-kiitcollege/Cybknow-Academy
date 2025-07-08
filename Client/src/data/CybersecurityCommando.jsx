@@ -52,41 +52,6 @@ const cybersecurityCommando = [
     topics: [
       "Reasoning, quantitative aptitude, English comprehension, statistics"
     ],
-  },
-  {
-    title: "Training Approach",
-    topics: [
-      "Hands-on, with real-world case studies, field visits, and practical exercises"
-    ],
-  },
-  {
-    title: "Unique Selling Points (USP) of Cyber Commando Training",
-    topics: [
-      "Permanent, verifiable certification recorded by government agencies",
-      "Cutting-edge skills: cyber defense, forensics, threat intelligence, IoT, 5G",
-      "National security impact: protect India’s digital infrastructure",
-      "Multi-institution collaboration (IITs, DIAT, RRU, NFSU)",
-      "70% practical learning: simulations, field visits, CTFs, hands-on labs"
-    ],
-  },
-  {
-    title: "Change of Certification/Identity Policy",
-    topics: [
-      "Cyber Commando certification/identity is permanent and unchangeable normally",
-      "Changes possible only in rare cases: fraud, duplicates, admin errors",
-      "Changes require government investigation and strict protocols",
-      "Similar to Aadhaar number identity permanence"
-    ],
-  },
-  {
-    title: "Quick Benefits Summary",
-    topics: [
-      "Elite, government-backed training with national security mission",
-      "70% practical curriculum: digital forensics, malware, red/blue teaming",
-      "Advanced specialization in IoT, cloud, threat intelligence",
-      "Direct deployment in law enforcement/national agencies",
-      "Permanent, verifiable certification & unique Cyber Commando identity"
-    ],
   }
 ];
 

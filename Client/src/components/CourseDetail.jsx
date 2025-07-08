@@ -17,10 +17,11 @@ const courseData = {
     image:
       "https://t4.ftcdn.net/jpg/12/61/69/15/360_F_1261691565_I3c94Fvpr3Ba4hCmpTQau5UUx77sTFR5.jpg",
     learn: [
-      "Understand ethical hacking fundamentals.",
-      "Master hands-on labs.",
-      "Prepare for certifications.",
-      "Develop real-world problem solving skills.",
+      "Based on the core principles of Confidentiality, Integrity, and Availability (CIA triad)—the pillars of all information security.",
+      "Emphasizes risk identification, assessment, and management as a foundation for all security decisions.",
+      "Covers real-world threats (malware, phishing, ransomware, social engineering) and practical mitigation strategies.",
+      "Stresses the importance of authentication, access control, encryption, and identity management for robust protection.",
+      "Promotes user education, awareness, and regular training to empower individuals as the first line of defense."
     ],
   },
   "Cyber Commando Training": {
@@ -33,10 +34,11 @@ const courseData = {
     image:
       "https://img.freepik.com/premium-vector/purple-shield-with-keyhole-it_42077-16825.jpg",
     learn: [
-      "Exploit buffer overflows.",
-      "Use Red Team strategies.",
-      "Develop advanced tools.",
-      "Simulate enterprise attacks.",
+      "Elite, government-backed training with national security mission and top institutional partners.",
+      "70% practical, field-driven curriculum: digital forensics, malware analysis, red/blue team ops.",
+      "Advanced specialization in critical infrastructure, IoT, cloud, and threat intelligence.",
+      "Direct deployment into high-impact cyber defense roles for law enforcement and national agencies.",
+      "Permanent, verifiable certification and unique Cyber Commando identity for each graduate."
     ],
   },
   "Zero to Mastery Cybersecurity": {
