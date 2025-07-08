@@ -4,6 +4,8 @@ import { FaCheckCircle } from "react-icons/fa";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import cybersecurityModules from "../data/CybersecurityCourseModules";
+import cyberCommandoModules from "../data/CybersecurityCommando";
+import cybersecurityFundamentalsModules from "../data/CyberCommandoModules";
 
 const courseData = {
   "ethical-hacking": {
@@ -12,7 +14,8 @@ const courseData = {
     duration: "4 Months",
     level: "Beginner",
     instructor: "Industry Expert",
-    image: "https://t4.ftcdn.net/jpg/12/61/69/15/360_F_1261691565_I3c94Fvpr3Ba4hCmpTQau5UUx77sTFR5.jpg",
+    image:
+      "https://t4.ftcdn.net/jpg/12/61/69/15/360_F_1261691565_I3c94Fvpr3Ba4hCmpTQau5UUx77sTFR5.jpg",
     learn: [
       "Understand ethical hacking fundamentals.",
       "Master hands-on labs.",
@@ -22,11 +25,13 @@ const courseData = {
   },
   "Cyber Commando Training": {
     title: "Cyber Commando Training",
-    description: "Master advanced techniques for network and web application testing.",
+    description:
+      "Master advanced techniques for network and web application testing.",
     duration: "6 Months",
     level: "Beginners to professionals",
     instructor: "Security Professional",
-    image: "https://img.freepik.com/premium-vector/purple-shield-with-keyhole-it_42077-16825.jpg",
+    image:
+      "https://img.freepik.com/premium-vector/purple-shield-with-keyhole-it_42077-16825.jpg",
     learn: [
       "Exploit buffer overflows.",
       "Use Red Team strategies.",
@@ -40,13 +45,30 @@ const courseData = {
     duration: "4 Months",
     level: "Absolute beginners",
     instructor: "Cloud Security Expert",
-    image: "https://www.securitymagazine.com/ext/resources/images/cyber-freepik-8.jpg?1625173880",
+    image:
+      "https://www.securitymagazine.com/ext/resources/images/cyber-freepik-8.jpg?1625173880",
     learn: [
       "Systematic foundation building from comprehensive cybersecurity education.",
       "Hands-on practical elements from industry-focused training.",
       "Industry-standard methodologies and certification alignment.",
       "Progressive skill development from beginner to expert level.",
-      "Real-world application focus with practical labs and projects"
+      "Real-world application focus with practical labs and projects",
+    ],
+  },
+  "Cybersecurity Fundamentals": {
+    title: "Cybersecurity Fundamentals",
+    description:
+      "Get a strong foundation in cybersecurity concepts, technologies, and practices.",
+    duration: "3 Months",
+    level: "Beginner to Intermediate",
+    instructor: "Certified Security Instructor",
+    image:
+      "https://img.freepik.com/free-vector/gradient-cyber-security-background_23-2149261125.jpg",
+    learn: [
+      "Master the CIA Triad and security principles.",
+      "Understand risk management and security frameworks.",
+      "Learn access control, cryptography, and incident response.",
+      "Gain insights into secure software development and emerging threats.",
     ],
   },
 };
@@ -74,6 +96,15 @@ export default function CourseDetail() {
     );
   }
 
+  const getModules = () => {
+    if (course.title === "Zero to Mastery Cybersecurity") return cybersecurityModules;
+    if (course.title === "Cyber Commando Training") return cyberCommandoModules;
+    if (course.title === "Ethical Hacking Fundamentals") return cybersecurityFundamentalsModules;
+    return null;
+  };
+
+  const modules = getModules();
+
   return (
     <>
       <div className="min-h-screen bg-[#0A0028] text-white px-4 sm:px-6 lg:px-12 py-10 flex flex-col lg:flex-row gap-10">
@@ -97,11 +128,11 @@ export default function CourseDetail() {
             </ul>
           </section>
 
-          {course.title === "Zero to Mastery Cybersecurity" && (
+          {modules && (
             <section>
               <h2 className="text-xl sm:text-2xl font-semibold mb-4">Course Modules (Detailed)</h2>
               <div className="space-y-3">
-                {cybersecurityModules.map((mod, idx) => (
+                {modules.map((mod, idx) => (
                   <div
                     key={idx}
                     className="border border-pink-500 bg-[#120048] rounded-lg px-4 py-3 cursor-pointer"
@@ -112,7 +143,9 @@ export default function CourseDetail() {
                         <HiOutlineDocumentText size={24} className="text-pink-400 mt-1" />
                         <div>
                           <h4 className="font-semibold text-white text-sm sm:text-base mb-1">{mod.title}</h4>
-                          <p className="text-xs sm:text-sm text-gray-400">Click to {expandedModule === idx ? "hide" : "view"} topics</p>
+                          <p className="text-xs sm:text-sm text-gray-400">
+                            Click to {expandedModule === idx ? "hide" : "view"} topics
+                          </p>
                         </div>
                       </div>
                       <div className="pt-1">
@@ -147,9 +180,6 @@ export default function CourseDetail() {
               <span className="font-semibold text-white">Duration:</span> {course.duration}
             </p>
             <p className="text-sm text-gray-400 mt-2">
-              <span className="font-semibold text-white">Level:</span> {course.level}
-            </p>
-            <p className="text-sm text-gray-400 mt-2">
               <span className="font-semibold text-white">Instructor:</span> {course.instructor}
             </p>
             <button
@@ -182,6 +212,7 @@ export default function CourseDetail() {
         </div>
       </div>
 
+      {/* Popup Form */}
       {showForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-md bg-black/60">
           <div className="bg-white text-black rounded-2xl p-8 w-full max-w-lg shadow-2xl relative animate-fadeIn">
@@ -198,19 +229,19 @@ export default function CourseDetail() {
               <input
                 type="text"
                 placeholder="Your Full Name"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2"
               />
               <input
                 type="email"
                 placeholder="Email Address"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2"
               />
               <input
                 type="text"
                 placeholder="Phone Number"
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2"
               />
-              <select className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm">
+              <select className="w-full border border-gray-300 rounded-lg px-4 py-2">
                 <option value="">Latest Qualification</option>
                 <option value="10th">10th</option>
                 <option value="12th">12th</option>
@@ -220,7 +251,7 @@ export default function CourseDetail() {
               <select
                 value={selectedCourse}
                 onChange={(e) => setSelectedCourse(e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500 shadow-sm"
+                className="w-full border border-gray-300 rounded-lg px-4 py-2"
               >
                 <option value="">Choose Course</option>
                 {courseTitles.map((title, idx) => (
