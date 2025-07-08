@@ -12,7 +12,7 @@ const jobs = [
     posted: "Oct 20, 2023",
     description:
       "Monitor security alerts, conduct vulnerability assessments, and respond to incidents. Requires 2+ years of experience.",
-    link: "#",
+    link: "https://www.securenet.com/careers/cybersecurity-analyst",
   },
   {
     type: "Internship",
@@ -22,7 +22,7 @@ const jobs = [
     posted: "Oct 18, 2023",
     description:
       "Assist senior testers in conducting penetration tests on web applications and networks. Ideal for students or recent graduates.",
-    link: "#",
+    link: "https://www.codeguard.io/internships/pen-test",
   },
   {
     type: "Full-time",
@@ -32,7 +32,7 @@ const jobs = [
     posted: "Oct 15, 2023",
     description:
       "Design, implement, and manage security solutions for cloud infrastructure. Strong knowledge of AWS/Azure required.",
-    link: "#",
+    link: "https://www.cloudprotect.com/jobs/security-engineer",
   },
   {
     type: "Full-time",
@@ -42,7 +42,7 @@ const jobs = [
     posted: "Oct 22, 2023",
     description:
       "Join our Security Operations Center to detect, analyze, and respond to cybersecurity threats in real-time.",
-    link: "#",
+    link: "https://www.cyberdefenders.com/careers/soc-analyst-tier-1",
   },
 ];
 
