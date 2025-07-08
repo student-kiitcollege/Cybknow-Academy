@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaBookOpen, FaUsers, FaBuilding } from "react-icons/fa";
 import { Typewriter } from "react-simple-typewriter";
+import emailjs from "emailjs-com";
 
 export default function FreeDemoRegistration() {
   const [formData, setFormData] = useState({
@@ -16,19 +17,46 @@ export default function FreeDemoRegistration() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const isEmpty = Object.values(formData).some((val) => val === "");
     if (isEmpty) return setStatus("❌ Please fill all fields");
 
-    setShowSuccessModal(true);
-    setFormData({ name: "", email: "", phone: "", preferredTime: "" });
-    setStatus("");
+    const serviceId = "service_iy2bkhw";
+    const userTemplateId = "template_3u23x9j";
+    const adminTemplateId = "template_a0ku10g";  
+    const userId = "ZCjOWoWw-W77SDbmd";      
+
+    const userTemplateParams = {
+      from_name: "Cybknow Academy",
+      to_name: formData.name,
+      to_email: formData.email, 
+      message: `Hi ${formData.name},\n\nThank you for registering for the free demo class. We will contact you shortly at ${formData.phone}.\n\nPreferred Time Slot: ${formData.preferredTime}\n\n- Cybknow Academy`,
+    };
+
+    const adminTemplateParams = {
+      from_name: formData.name,
+      to_name: "Cybknow Team",
+      to_email: "jenasourav2001@gmail.com",
+      message: `New Demo Registration:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nPreferred Time: ${formData.preferredTime}`,
+    };
+
+    try {
+      await emailjs.send(serviceId, userTemplateId, userTemplateParams, userId);
+
+      await emailjs.send(serviceId, adminTemplateId, adminTemplateParams, userId);
+
+      setShowSuccessModal(true);
+      setFormData({ name: "", email: "", phone: "", preferredTime: "" });
+      setStatus("");
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      setStatus("❌ Failed to send email. Please try again.");
+    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f062e] via-[#130a3d] to-[#1c104b] text-white px-4 py-12 md:px-12 lg:px-20 flex flex-col lg:flex-row gap-10 items-center justify-between">
-      {/* Left Side */}
       <div className="flex-1 flex flex-col justify-center space-y-6 max-w-xl">
         <h1 className="text-4xl sm:text-5xl font-bold text-purple-400 leading-tight">
           Empower Your Future in Cybersecurity
@@ -39,7 +67,6 @@ export default function FreeDemoRegistration() {
           and take the first step toward mastering cybersecurity with Cybknow Academy.
         </p>
 
-        {/* Typewriter Highlights */}
         <ul className="space-y-4 text-lg font-medium text-white">
           <li className="flex items-center gap-3">
             <FaBookOpen className="text-blue-400 text-xl animate-pulse" />
@@ -82,35 +109,25 @@ export default function FreeDemoRegistration() {
           </li>
         </ul>
 
-        {/* Testimonials Section */}
         <div className="mt-8 space-y-6">
           <h3 className="text-2xl font-semibold text-white">What Our Students Say</h3>
           <div className="bg-[#29195d] p-4 rounded-xl shadow-lg">
             <p className="text-gray-300 italic">“This academy helped me land a cybersecurity role in just 3 months!”</p>
             <div className="mt-2 flex items-center gap-3">
-              <img
-                src="https://i.pravatar.cc/40?img=1"
-                alt="Student"
-                className="w-10 h-10 rounded-full"
-              />
+              <img src="https://i.pravatar.cc/40?img=1" alt="Student" className="w-10 h-10 rounded-full" />
               <span className="text-white font-medium">Anjali Sharma</span>
             </div>
           </div>
           <div className="bg-[#29195d] p-4 rounded-xl shadow-lg">
             <p className="text-gray-300 italic">“Great instructors and real-world projects. Highly recommend Cybknow!”</p>
             <div className="mt-2 flex items-center gap-3">
-              <img
-                src="https://i.pravatar.cc/40?img=2"
-                alt="Student"
-                className="w-10 h-10 rounded-full"
-              />
+              <img src="https://i.pravatar.cc/40?img=2" alt="Student" className="w-10 h-10 rounded-full" />
               <span className="text-white font-medium">Rahul Mehta</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Right Side: Form */}
       <div className="flex-1 bg-[#1e1243] rounded-2xl p-10 shadow-lg max-w-xl w-full mx-auto">
         <h2 className="text-3xl font-bold mb-6 text-center text-blue-400">
           Register for Free Demo
@@ -150,9 +167,7 @@ export default function FreeDemoRegistration() {
             className="w-full px-5 py-3 rounded-lg bg-[#29195d] border border-gray-600 focus:ring-2 focus:ring-blue-500 text-white"
             required
           >
-            <option value="" disabled>
-              Select Time Slot
-            </option>
+            <option value="" disabled>Select Time Slot</option>
             <option value="10AM - 12PM">10AM - 12PM</option>
             <option value="2PM - 4PM">2PM - 4PM</option>
             <option value="6PM - 8PM">6PM - 8PM</option>
@@ -160,13 +175,11 @@ export default function FreeDemoRegistration() {
 
           <button
             type="submit"
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition duration-300"
+            className="w-full bg-blue-600 cursor-pointer hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition duration-300"
           >
             Register Now
           </button>
-          {status && (
-            <p className="text-sm text-center mt-2 text-red-400">{status}</p>
-          )}
+          {status && <p className="text-sm text-center mt-2 text-red-400">{status}</p>}
         </form>
       </div>
 
@@ -198,7 +211,7 @@ export default function FreeDemoRegistration() {
         </div>
       )}
 
-      {/* Custom Styling */}
+      {/* Custom CSS */}
       <style>{`
         .typewriter-rtl {
           direction: rtl;
