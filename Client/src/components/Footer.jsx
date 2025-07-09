@@ -27,10 +27,10 @@ const Footer = () => {
         <div>
           <h2 className="text-2xl font-bold mb-2">
             Cybknow <br />
-            <span className="text-xl">Learning Hub</span>
+            <span className="text-xl">Academy</span>
           </h2>
           <p className="text-sm text-gray-300 mt-2 max-w-xs sm:max-w-none">
-            Learn new skills with top educators. Cybknow Learning Hub is the
+            Learn new skills with top educators. Cybknow Academy is the
             right place for you to learn new skills that will fetch you better
             opportunities in your career.
           </p>
