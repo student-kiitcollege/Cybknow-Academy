@@ -40,12 +40,11 @@ const Footer = () => {
           <h3 className="text-lg font-bold mb-3">Additional Links</h3>
           <ul className="space-y-1 text-sm text-gray-300">
             <li>
-              <button
-                onClick={() => setShowForm(true)}
-                className="hover:underline cursor-pointer"
+              <Link to="/register "
+                className="hover:text-purple-600 transition duration-200"
               >
                 Register
-              </button>
+              </Link>
             </li>
             <li><Link to="/support" className="hover:text-purple-600 transition duration-200">Contact Us</Link></li>
             <li><Link to="/privacypolicy" className="hover:text-purple-600 transition duration-200">Privacy Policy</Link></li>

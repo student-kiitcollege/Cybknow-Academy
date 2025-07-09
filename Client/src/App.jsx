@@ -20,6 +20,7 @@ import ScrollToTop from './components/ScrollToTop';
 import TermsAndConditions from './components/TermsAndConditions';
 import RefundPolicy from './components/RefundPolicy';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import RegistrationPage from './components/RegistrationPage';
 
 const App = () => {
   return (
@@ -50,6 +51,8 @@ const App = () => {
         <Route path="/terms"  element={<TermsAndConditions />} />
         <Route path='/policy' element={<RefundPolicy />} />
         <Route path='/privacypolicy' element={<PrivacyPolicy />} />
+        <Route path="/register" element={<RegistrationPage />} />
+
 
       </Routes>
       <Footer />
