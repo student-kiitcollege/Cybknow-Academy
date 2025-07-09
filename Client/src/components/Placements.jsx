@@ -10,7 +10,7 @@ const jobs = [
     title: "Penetration Tester Intern",
     company: "CodeGuard LLC.",
     location: "Remote",
-    posted: "Oct 18, 2023",
+    posted: "July 8, 2025",
     description:
       "Assist senior testers in conducting penetration tests on web applications and networks. Ideal for students or recent graduates.",
     link: "https://www.codeguard.io/internships/pen-test",
@@ -20,7 +20,7 @@ const jobs = [
     title: "SOC Intern (Security Operations)",
     company: "CyberSafe AI",
     location: "Bangalore, India",
-    posted: "Oct 19, 2023",
+    posted: "July 1, 2025",
     description:
       "Gain hands-on experience in monitoring and analyzing security events. Learn to respond to real-time threats using SIEM tools.",
     link: "https://cybersafe.ai/internships/soc",
@@ -30,7 +30,7 @@ const jobs = [
     title: "Cybersecurity Research Intern",
     company: "RedShield Labs",
     location: "Pune, India",
-    posted: "Oct 16, 2023",
+    posted: "June 16, 2025",
     description:
       "Support ongoing research in vulnerability discovery, zero-day analysis, and malware trends.",
     link: "https://redshieldlabs.com/careers/research-intern",
@@ -40,7 +40,7 @@ const jobs = [
     title: "Threat Intelligence Intern",
     company: "ThreatTrack",
     location: "Remote",
-    posted: "Oct 15, 2023",
+    posted: "June 25, 2025",
     description:
       "Assist the TI team in collecting and analyzing cyber threat data and creating intelligence reports.",
     link: "https://threattrack.com/interns/ti",

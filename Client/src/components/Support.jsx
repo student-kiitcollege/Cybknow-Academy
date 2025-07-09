@@ -71,7 +71,7 @@ export default function Support() {
       setChatMessages((prev) => [...prev, botReply]);
       speakText(botReply.text);
       setIsTyping(false);
-    }, 1500); // 1.5s delay to simulate typing
+    }, 1500);
   };
 
   useEffect(() => {
@@ -219,7 +219,6 @@ export default function Support() {
                   </div>
                 </div>
               ))}
-
               {isTyping && (
                 <div className="text-left text-gray-300">
                   <div className="inline-block bg-[#2D1E60] px-4 py-2 rounded-lg animate-pulse">
