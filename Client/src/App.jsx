@@ -17,6 +17,9 @@ import CourseDetail from './components/CourseDetail';
 import Placements from './components/Placements';
 import Support from './components/Support'; 
 import ScrollToTop from './components/ScrollToTop';
+import TermsAndConditions from './components/TermsAndConditions';
+import RefundPolicy from './components/RefundPolicy';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 const App = () => {
   return (
@@ -44,6 +47,10 @@ const App = () => {
         <Route path="/support" element={<Support />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/terms"  element={<TermsAndConditions />} />
+        <Route path='/policy' element={<RefundPolicy />} />
+        <Route path='/privacypolicy' element={<PrivacyPolicy />} />
+
       </Routes>
       <Footer />
     </Router>

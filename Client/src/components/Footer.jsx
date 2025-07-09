@@ -47,11 +47,19 @@ const Footer = () => {
                 Register
               </button>
             </li>
-            <li><Link to="/support" className="hover:underline">Contact Us</Link></li>
-            <li><a href="#" className="hover:underline">Privacy Policy</a></li>
-            <li><a href="#" className="hover:underline">Refund Policy</a></li>
-            <li><a href="#" className="hover:underline">Terms And Conditions</a></li>
-            <li><a href="/about" className="hover:underline">About</a></li>
+            <li><Link to="/support" className="hover:text-purple-600 transition duration-200">Contact Us</Link></li>
+            <li><Link to="/privacypolicy" className="hover:text-purple-600 transition duration-200">Privacy Policy</Link></li>
+            <li><Link to="/policy" className="hover:text-purple-600 transition duration-200">Refund Policy</Link></li>
+            <li>
+              <Link to="/terms" className="hover:text-purple-600 transition duration-200">
+                Terms And Conditions
+              </Link>
+            </li>            
+            <li>
+              <Link to="/about" className="hover:text-purple-600 transition duration-200">
+                About
+              </Link>
+            </li>          
           </ul>
         </div>
 
