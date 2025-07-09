@@ -39,7 +39,7 @@ const PlacedPopup = () => {
             PLACED
           </h1>
           <h2 className="mt-3 sm:mt-4 text-xl sm:text-2xl font-semibold text-black">
-            SATYA PRAKASH SWAIN
+            SURAJ KUMAR SAHOO
           </h2>
           <p className="text-sm sm:text-base text-gray-500 mt-1">
             TCS PRIME, CHENNAI

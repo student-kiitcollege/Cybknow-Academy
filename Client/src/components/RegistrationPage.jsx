@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "emailjs-com";
+import qrCodeImage from "../assets/qrcode.jpg"
 
 const RegistrationPage = () => {
   const [searchParams] = useSearchParams();
@@ -174,13 +175,13 @@ const RegistrationPage = () => {
             <p className="text-sm text-gray-200 mb-2">Scan the QR code below to complete your payment.</p>
             <div className="flex justify-center">
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg"
+                src={qrCodeImage}
                 alt="QR code"
                 className="w-40 h-40 border rounded-md shadow-md bg-white"
               />
             </div>
             <p className="text-center text-sm mt-2 text-purple-200">
-              UPI ID: <span className="font-semibold">cybknow@upi</span>
+              UPI ID: <span className="font-semibold">9078558087-2@ybl</span>
             </p>
             <p className="text-xs text-center text-gray-300 mt-1 italic">
               * Payment not required to submit.
