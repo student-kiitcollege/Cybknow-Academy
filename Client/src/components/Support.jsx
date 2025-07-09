@@ -129,7 +129,7 @@ export default function Support() {
               ></textarea>
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md"
+                className="w-full cursor-pointer bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md"
               >
                 Send Message
               </button>
@@ -164,7 +164,7 @@ export default function Support() {
             </div>
             <button
               onClick={() => setShowChat(true)}
-              className="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md w-full"
+              className="bg-blue-600 cursor-pointer hover:bg-blue-700 text-white py-2 rounded-md w-full"
             >
               Start Chat
             </button>
