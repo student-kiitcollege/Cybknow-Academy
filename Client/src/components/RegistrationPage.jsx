@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import emailjs from "emailjs-com";
 
 const RegistrationPage = () => {
   const [searchParams] = useSearchParams();
@@ -38,21 +39,43 @@ const RegistrationPage = () => {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
       setErrors({});
-      setShowPopup(true);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        qualification: "",
-      });
-      setSelectedCourse("");
+
+      const serviceId = "service_iy2bkhw";
+      const userTemplateId = "template_3u23x9j";
+      const adminTemplateId = "template_a0ku10g";
+      const userId = "ZCjOWoWw-W77SDbmd";
+
+      const userTemplateParams = {
+        from_name: "Cybknow Academy",
+        to_name: formData.name,
+        to_email: formData.email,
+        message: `Hi ${formData.name},\n\nThank you for registering for the course "${selectedCourse}". We will contact you shortly at ${formData.phone}.\n\nQualification: ${formData.qualification}\n\n- Cybknow Academy`,
+      };
+
+      const adminTemplateParams = {
+        from_name: formData.name,
+        to_name: "Cybknow Team",
+        to_email: "jenasourav2001@gmail.com",
+        message: `New Course Registration:\n\nName: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nQualification: ${formData.qualification}\nSelected Course: ${selectedCourse}`,
+      };
+
+      try {
+        await emailjs.send(serviceId, userTemplateId, userTemplateParams, userId);
+        await emailjs.send(serviceId, adminTemplateId, adminTemplateParams, userId);
+        setShowPopup(true);
+        setFormData({ name: "", email: "", phone: "", qualification: "" });
+        setSelectedCourse("");
+      } catch (error) {
+        console.error("Email sending failed:", error);
+        alert("❌ Failed to send email. Please try again later.");
+      }
     }
   };
 
@@ -145,7 +168,7 @@ const RegistrationPage = () => {
             {errors.course && <p className="text-red-300 text-sm">{errors.course}</p>}
           </div>
 
-          {/* Payment (Optional) */}
+          {/* Payment Section */}
           <div className="mt-8 p-5 border border-purple-300 bg-purple-100/30 text-white rounded-xl">
             <h3 className="text-lg font-semibold text-purple-200 mb-2">Make Payment (Optional)</h3>
             <p className="text-sm text-gray-200 mb-2">Scan the QR code below to complete your payment.</p>
@@ -166,7 +189,7 @@ const RegistrationPage = () => {
 
           <motion.button
             type="submit"
-            className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition duration-300"
+            className="w-full cursor-pointer bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition duration-300"
             whileTap={{ scale: 0.97 }}
           >
             Submit Registration
@@ -174,7 +197,7 @@ const RegistrationPage = () => {
         </form>
       </motion.div>
 
-      {/* SUCCESS POPUP */}
+      {/* Success Popup */}
       <AnimatePresence>
         {showPopup && (
           <motion.div
@@ -197,7 +220,7 @@ const RegistrationPage = () => {
               </p>
               <button
                 onClick={() => setShowPopup(false)}
-                className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded-md font-medium"
+                className="bg-purple-600 hover:bg-purple-700 cursor-pointer text-white px-6 py-2 rounded-md font-medium"
               >
                 Close
               </button>

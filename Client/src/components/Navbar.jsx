@@ -98,7 +98,7 @@ export default function Navbar() {
                 className="block bg-gradient-to-r from-blue-500 to-pink-500 text-white text-center py-2 rounded-md w-full font-semibold"
                 onClick={() => setMenuOpen(false)}
               >
-                Get in Touch
+                Get a free demo class
               </Link>
             </li>
           </ul>

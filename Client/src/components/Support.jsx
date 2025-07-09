@@ -1,10 +1,80 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FiMail } from "react-icons/fi";
 import { BsChatDots } from "react-icons/bs";
+import emailjs from "emailjs-com";
 
 export default function Support() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+  const [showChat, setShowChat] = useState(false);
+  const [chatMessages, setChatMessages] = useState([]);
+  const [currentChat, setCurrentChat] = useState("");
+  const chatRef = useRef(null);
+
+  const speakText = (text) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "en-US";
+    window.speechSynthesis.speak(utterance);
+  };
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const isEmpty = Object.values(formData).some((val) => val.trim() === "");
+    if (isEmpty) return setStatus("❌ Please fill in all fields.");
+
+    const serviceId = "service_iy2bkhw";
+    const templateId = "template_a0ku10g";
+    const userId = "ZCjOWoWw-W77SDbmd";
+
+    const templateParams = {
+      from_name: formData.name,
+      to_name: "Cybknow Team",
+      to_email: "jenasourav2001@gmail.com",
+      message: `Support Inquiry:\n\nName: ${formData.name}\nEmail: ${formData.email}\nSubject: ${formData.subject}\nMessage:\n${formData.message}`,
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, userId);
+      setStatus("✅ Message sent successfully!");
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      console.error("Email sending failed:", error);
+      setStatus("❌ Failed to send. Please try again.");
+    }
+  };
+
+  const handleChatSubmit = (e) => {
+    e.preventDefault();
+    if (!currentChat.trim()) return;
+
+    const userMessage = { from: "user", text: currentChat };
+    const botReply = {
+      from: "bot",
+      text: "Thanks for reaching out! We'll get back to you soon.",
+    };
+
+    setChatMessages((prev) => [...prev, userMessage, botReply]);
+    speakText(botReply.text);
+    setCurrentChat("");
+  };
+
+  useEffect(() => {
+    if (chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
+  }, [chatMessages]);
+
   return (
-    <div className="min-h-screen bg-[#0A0028] text-white px-4 py-16">
+    <div className="min-h-screen bg-[#0A0028] text-white px-4 py-16 relative">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2">
           Support & Assistance – Cybknow Academy
@@ -15,6 +85,7 @@ export default function Support() {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Contact Form */}
           <div className="bg-[#1C0F45] p-6 sm:p-8 rounded-xl border border-[#2D1E60]">
             <h2 className="text-xl sm:text-2xl font-semibold flex items-center gap-2 mb-3">
               <FiMail className="text-blue-400" />
@@ -23,48 +94,58 @@ export default function Support() {
             <p className="text-gray-400 mb-6 text-sm">
               Have questions or need assistance? Fill out the form below, and our team will get back to you as soon as possible.
             </p>
-            <form className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium mb-1">Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Enter Your Name"
-                  className="w-full px-4 py-2 bg-[#0A0028] border border-[#2D1E60] rounded-md text-white placeholder-gray-400 text-sm sm:text-base"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Email Address</label>
-                <input
-                  type="email"
-                  placeholder="Enter Your Email"
-                  className="w-full px-4 py-2 bg-[#0A0028] border border-[#2D1E60] rounded-md text-white placeholder-gray-400 text-sm sm:text-base"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Subject</label>
-                <input
-                  type="text"
-                  placeholder="Inquiry about a course"
-                  className="w-full px-4 py-2 bg-[#0A0028] border border-[#2D1E60] rounded-md text-white placeholder-gray-400 text-sm sm:text-base"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium mb-1">Message</label>
-                <textarea
-                  placeholder="Your message here..."
-                  rows="5"
-                  className="w-full px-4 py-2 bg-[#0A0028] border border-[#2D1E60] rounded-md text-white placeholder-gray-400 text-sm sm:text-base"
-                ></textarea>
-              </div>
+            <form className="space-y-4" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                placeholder="Enter Your Name"
+                className="w-full px-4 py-2 bg-[#0A0028] border border-[#2D1E60] rounded-md text-white placeholder-gray-400"
+              />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Enter Your Email"
+                className="w-full px-4 py-2 bg-[#0A0028] border border-[#2D1E60] rounded-md text-white placeholder-gray-400"
+              />
+              <input
+                type="text"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                placeholder="Subject"
+                className="w-full px-4 py-2 bg-[#0A0028] border border-[#2D1E60] rounded-md text-white placeholder-gray-400"
+              />
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Your message..."
+                rows="5"
+                className="w-full px-4 py-2 bg-[#0A0028] border border-[#2D1E60] rounded-md text-white placeholder-gray-400"
+              ></textarea>
               <button
                 type="submit"
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md transition text-sm sm:text-base"
+                className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-md"
               >
                 Send Message
               </button>
+              {status && (
+                <p
+                  className={`mt-2 text-center text-sm ${
+                    status.startsWith("✅") ? "text-green-400" : "text-red-400"
+                  }`}
+                >
+                  {status}
+                </p>
+              )}
             </form>
           </div>
 
+          {/* Chat Section */}
           <div className="bg-[#1C0F45] p-6 sm:p-8 rounded-xl border border-[#2D1E60] flex flex-col justify-between">
             <div>
               <h2 className="text-xl sm:text-2xl font-semibold flex items-center gap-2 mb-3">
@@ -78,18 +159,72 @@ export default function Support() {
                 <BsChatDots className="text-blue-500 text-5xl sm:text-6xl" />
               </div>
               <p className="text-center text-sm text-gray-400 mb-6">
-                Our chatbot is currently under development. Please use the contact form for inquiries.
+                Click below to start chatting with our assistant.
               </p>
             </div>
             <button
-              disabled
-              className="bg-[#2D1E60] text-gray-400 py-2 rounded-md cursor-not-allowed w-full text-sm sm:text-base"
+              onClick={() => setShowChat(true)}
+              className="bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md w-full"
             >
-              Start Chat (Coming Soon)
+              Start Chat
             </button>
           </div>
         </div>
       </div>
+
+      {/* Chat Popup */}
+      {showChat && (
+        <div className="fixed bottom-5 right-5 bg-[#1C0F45] border border-[#2D1E60] w-80 rounded-xl shadow-xl z-50 flex flex-col">
+          {/* Header */}
+          <div className="flex justify-between items-center px-4 py-2 border-b border-[#2D1E60] text-blue-400 font-bold">
+            <span>Cybknow Support Bot</span>
+            <button
+              onClick={() => setShowChat(false)}
+              className="text-xl text-red-400 hover:text-red-600"
+            >
+              ×
+            </button>
+          </div>
+
+          {/* Messages */}
+          <div
+            ref={chatRef}
+            className="flex-1 px-4 py-2 overflow-y-auto h-64 text-sm space-y-2"
+          >
+            {chatMessages.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`${
+                  msg.from === "user"
+                    ? "text-right text-white"
+                    : "text-left text-gray-300"
+                }`}
+              >
+                <div className="inline-block bg-[#2D1E60] px-3 py-2 rounded-md">
+                  {msg.text}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Input */}
+          <form onSubmit={handleChatSubmit} className="flex border-t border-[#2D1E60]">
+            <input
+              type="text"
+              value={currentChat}
+              onChange={(e) => setCurrentChat(e.target.value)}
+              placeholder="Type a message..."
+              className="flex-1 px-3 py-2 bg-[#0A0028] text-white outline-none text-sm"
+            />
+            <button
+              type="submit"
+              className="px-4 text-blue-400 hover:text-blue-500 text-xl"
+            >
+              ➤
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
