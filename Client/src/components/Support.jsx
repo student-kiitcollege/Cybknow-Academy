@@ -15,6 +15,7 @@ export default function Support() {
   const [showChat, setShowChat] = useState(false);
   const [chatMessages, setChatMessages] = useState([]);
   const [currentChat, setCurrentChat] = useState("");
+  const [isTyping, setIsTyping] = useState(false);
   const chatRef = useRef(null);
 
   const speakText = (text) => {
@@ -58,21 +59,26 @@ export default function Support() {
     if (!currentChat.trim()) return;
 
     const userMessage = { from: "user", text: currentChat };
-    const botReply = {
-      from: "bot",
-      text: "Thanks for reaching out! We'll get back to you soon.",
-    };
-
-    setChatMessages((prev) => [...prev, userMessage, botReply]);
-    speakText(botReply.text);
+    setChatMessages((prev) => [...prev, userMessage]);
     setCurrentChat("");
+    setIsTyping(true);
+
+    setTimeout(() => {
+      const botReply = {
+        from: "bot",
+        text: "Thanks for reaching out! We'll get back to you soon.",
+      };
+      setChatMessages((prev) => [...prev, botReply]);
+      speakText(botReply.text);
+      setIsTyping(false);
+    }, 1500); // 1.5s delay to simulate typing
   };
 
   useEffect(() => {
     if (chatRef.current) {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
-  }, [chatMessages]);
+  }, [chatMessages, isTyping]);
 
   return (
     <div className="min-h-screen bg-[#0A0028] text-white px-4 py-16 relative">
@@ -213,6 +219,14 @@ export default function Support() {
                   </div>
                 </div>
               ))}
+
+              {isTyping && (
+                <div className="text-left text-gray-300">
+                  <div className="inline-block bg-[#2D1E60] px-4 py-2 rounded-lg animate-pulse">
+                    Typing...
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Input */}
