@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FiMail } from "react-icons/fi";
 import { BsChatDots } from "react-icons/bs";
 import emailjs from "emailjs-com";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Support() {
   const [formData, setFormData] = useState({
@@ -156,7 +157,7 @@ export default function Support() {
                 Get instant answers to common questions with our AI-powered chatbot from Cybknow Academy.
               </p>
               <div className="flex justify-center items-center mb-6">
-                <BsChatDots className="text-blue-500 text-5xl sm:text-6xl" />
+                <BsChatDots className="text-blue-500 text-6xl sm:text-7xl" />
               </div>
               <p className="text-center text-sm text-gray-400 mb-6">
                 Click below to start chatting with our assistant.
@@ -172,59 +173,67 @@ export default function Support() {
         </div>
       </div>
 
-      {/* Chat Popup */}
-      {showChat && (
-        <div className="fixed bottom-5 right-5 bg-[#1C0F45] border border-[#2D1E60] w-80 rounded-xl shadow-xl z-50 flex flex-col">
-          {/* Header */}
-          <div className="flex justify-between items-center px-4 py-2 border-b border-[#2D1E60] text-blue-400 font-bold">
-            <span>Cybknow Support Bot</span>
-            <button
-              onClick={() => setShowChat(false)}
-              className="text-xl text-red-400 hover:text-red-600"
-            >
-              ×
-            </button>
-          </div>
-
-          {/* Messages */}
-          <div
-            ref={chatRef}
-            className="flex-1 px-4 py-2 overflow-y-auto h-64 text-sm space-y-2"
+      {/* Chat Popup with Animation */}
+      <AnimatePresence>
+        {showChat && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, y: 100 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 100 }}
+            transition={{ duration: 0.4 }}
+            className="fixed bottom-4 right-4 md:bottom-6 md:right-6 bg-[#1C0F45] border border-[#2D1E60] w-[90%] max-w-[360px] h-[480px] rounded-xl shadow-xl z-50 flex flex-col"
           >
-            {chatMessages.map((msg, idx) => (
-              <div
-                key={idx}
-                className={`${
-                  msg.from === "user"
-                    ? "text-right text-white"
-                    : "text-left text-gray-300"
-                }`}
+            {/* Header */}
+            <div className="flex justify-between items-center px-4 py-3 border-b border-[#2D1E60] text-blue-400 font-bold text-base">
+              <span>Cybknow Support Bot</span>
+              <button
+                onClick={() => setShowChat(false)}
+                className="text-xl text-red-400 hover:text-red-600"
               >
-                <div className="inline-block bg-[#2D1E60] px-3 py-2 rounded-md">
-                  {msg.text}
-                </div>
-              </div>
-            ))}
-          </div>
+                ×
+              </button>
+            </div>
 
-          {/* Input */}
-          <form onSubmit={handleChatSubmit} className="flex border-t border-[#2D1E60]">
-            <input
-              type="text"
-              value={currentChat}
-              onChange={(e) => setCurrentChat(e.target.value)}
-              placeholder="Type a message..."
-              className="flex-1 px-3 py-2 bg-[#0A0028] text-white outline-none text-sm"
-            />
-            <button
-              type="submit"
-              className="px-4 text-blue-400 hover:text-blue-500 text-xl"
+            {/* Messages */}
+            <div
+              ref={chatRef}
+              className="flex-1 px-4 py-3 overflow-y-auto text-sm space-y-3"
             >
-              ➤
-            </button>
-          </form>
-        </div>
-      )}
+              {chatMessages.map((msg, idx) => (
+                <div
+                  key={idx}
+                  className={`${
+                    msg.from === "user"
+                      ? "text-right text-white"
+                      : "text-left text-gray-300"
+                  }`}
+                >
+                  <div className="inline-block bg-[#2D1E60] px-4 py-2 rounded-lg max-w-[85%] break-words">
+                    {msg.text}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Input */}
+            <form onSubmit={handleChatSubmit} className="flex border-t border-[#2D1E60]">
+              <input
+                type="text"
+                value={currentChat}
+                onChange={(e) => setCurrentChat(e.target.value)}
+                placeholder="Type a message..."
+                className="flex-1 px-4 py-2 bg-[#0A0028] text-white outline-none text-sm"
+              />
+              <button
+                type="submit"
+                className="px-4 text-blue-400 hover:text-blue-500 text-xl"
+              >
+                ➤
+              </button>
+            </form>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
