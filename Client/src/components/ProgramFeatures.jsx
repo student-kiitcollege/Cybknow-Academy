@@ -12,7 +12,7 @@ const features = [
     duration: "4 Months",
   },
   {
-    id: "penetration-testing",
+    id: "Cyber Commando Training",
     img: "https://img.freepik.com/premium-vector/purple-shield-with-keyhole-it_42077-16825.jpg",
     title: "Cyber Commando Training",
     level: "Advanced",

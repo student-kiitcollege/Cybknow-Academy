@@ -122,10 +122,10 @@ export default function CourseDetail() {
           <h2 className="text-xl sm:text-2xl font-semibold mb-4">What You'll Learn</h2>
           <ul className="space-y-3">
             {course.learn.map((point, idx) => (
-              <li key={idx} className="flex items-start gap-3 text-gray-300 text-sm sm:text-base">
-                <FaCheckCircle className="text-green-400 mt-1" size={18} />
-                <span>{point}</span>
-              </li>
+            <li key={idx} className="flex items-start gap-3 text-gray-300 text-sm sm:text-base">
+              <FaCheckCircle className="text-green-400 mt-1 sm:mt-1.5 min-w-[18px]" size={20} />
+              <span className="leading-snug">{point}</span>
+            </li>
             ))}
           </ul>
         </section>
