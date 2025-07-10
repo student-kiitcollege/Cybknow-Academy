@@ -20,10 +20,7 @@ const RegistrationPage = () => {
   const courseTitles = [
     "Zero to Mastery Cybersecurity",
     "Cyber Commando Training Programme",
-    "Ethical Hacking Essentials",
-    "Penetration Testing Pro",
-    "Cloud Security Fundamentals",
-    "Digital Forensics and Incident Response",
+    "Ethical Hacking Fundamentals",
   ];
 
   useEffect(() => {
