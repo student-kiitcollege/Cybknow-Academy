@@ -5,19 +5,20 @@ import Confetti from "react-confetti";
 import { motion } from "framer-motion";
 import cyber from "../assets/Cyber.png";
 import profilePic from "../assets/profile.jpg";
+import satya from "../assets/satyaprofile.jpg"
 
 const placements = [
   {
     name: "SURAJ KUMAR SAHOO",
     company: "TCS PRIME",
-    location: "Chennai",
+    location: "ODISHA",
     src: profilePic,
   },
   {
-    name: "ANANYA SAHU",
-    company: "Infosys",
-    location: "Bangalore",
-    src: "https://cdn-icons-png.flaticon.com/512/1999/1999625.png",
+    name: "SATYA PRAKASH SWAIN",
+    company: "TCS PRIME",
+    location: "CHENNAI",
+    src: satya,
   },
   {
     name: "RAKESH NAYAK",

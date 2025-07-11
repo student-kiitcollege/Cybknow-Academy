@@ -81,7 +81,7 @@ const RegistrationPage = () => {
     <div
       className="min-h-screen w-full bg-cover bg-center flex items-center justify-center relative"
       style={{
-        backgroundImage: `url('https://img.freepik.com/premium-vector/abstract-digital-technology-futuristic-circuit-background_70921-261.jpg')`,
+        backgroundImage: `url('https://t3.ftcdn.net/jpg/08/10/89/84/360_F_810898439_M7GxeIoecPFWfUaIekY0Qw3q4Kh2l0yO.jpg')`,
       }}
     >
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
@@ -166,7 +166,6 @@ const RegistrationPage = () => {
             {errors.course && <p className="text-red-300 text-sm">{errors.course}</p>}
           </div>
 
-          {/* Payment Section */}
           <div className="mt-8 p-5 border border-purple-300 bg-purple-100/30 text-white rounded-xl">
             <h3 className="text-lg font-semibold text-purple-200 mb-2">Make Payment (Optional)</h3>
             <p className="text-sm text-gray-200 mb-2">Scan the QR code below to complete your payment.</p>
@@ -195,7 +194,6 @@ const RegistrationPage = () => {
         </form>
       </motion.div>
 
-      {/* Success Popup */}
       <AnimatePresence>
         {showPopup && (
           <motion.div
