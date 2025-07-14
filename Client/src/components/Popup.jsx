@@ -42,7 +42,7 @@ const PlacedPopup = () => {
             SURAJ KUMAR SAHOO
           </h2>
           <p className="text-sm sm:text-base text-gray-500 mt-1">
-            TCS PRIME, CHENNAI
+            TCS PRIME, ODISHA
           </p>
         </div>
 
