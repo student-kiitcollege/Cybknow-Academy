@@ -45,7 +45,6 @@ const PlacedPopup = () => {
             TCS PRIME, ODISHA
           </p>
         </div>
-
         <img
           src={logo}
           alt="Logo"
