@@ -166,23 +166,7 @@ const RegistrationPage = () => {
             {errors.course && <p className="text-red-300 text-sm">{errors.course}</p>}
           </div>
 
-          <div className="mt-8 p-5 border border-purple-300 bg-purple-100/30 text-white rounded-xl">
-            <h3 className="text-lg font-semibold text-purple-200 mb-2">Make Payment (Optional)</h3>
-            <p className="text-sm text-gray-200 mb-2">Scan the QR code below to complete your payment.</p>
-            <div className="flex justify-center">
-              <img
-                src={qrCodeImage}
-                alt="QR code"
-                className="w-40 h-40 border rounded-md shadow-md bg-white"
-              />
-            </div>
-            <p className="text-center text-sm mt-2 text-purple-200">
-              UPI ID: <span className="font-semibold">9078558087-2@ybl</span>
-            </p>
-            <p className="text-xs text-center text-gray-300 mt-1 italic">
-              * Payment not required to submit.
-            </p>
-          </div>
+          
 
           <motion.button
             type="submit"
